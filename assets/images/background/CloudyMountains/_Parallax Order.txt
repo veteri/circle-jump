@@ -1,0 +1,9 @@
+9. Sky
+8. Rocks3
+7. Clouds1
+6. Clouds2
+5. Rocks2
+4. Clouds3
+3. Birds
+2. Rocks1
+1. Pines

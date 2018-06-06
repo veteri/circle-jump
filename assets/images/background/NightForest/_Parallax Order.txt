@@ -1,0 +1,8 @@
+8. sky
+7. clouds2
+6. clouds1
+5. rocks
+4. ground1
+3. ground2
+2. ground3
+1. plant

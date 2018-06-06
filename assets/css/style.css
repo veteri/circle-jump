@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    font-family: "Luckiest Guy", sans-serif;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+}
+
+.game {
+    position: relative;
+    background: #000;
+}
+
+.loading-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-info > .spinner {
+    width: 100%;
+    text-align: center;
+}
+
+.lds-bluecat {
+    width: 300px;
+}
+
+.progress-bar {
+    margin-top: 50px;
+    width: 600px;
+    height: 30px;
+    border: 3px solid #fff;
+}
+
+.progress {
+    height: 100%;
+    background-color: dodgerblue;
+    width: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.clearfix:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+
+.image-loading {
+    display: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    height: 40px;
+}
+
+button, input {
+    z-index: 1338;
+}
+
+
+.debug-tools {
+    background: #f4f4f4;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    color: #f9f9f9;
+    font-size: 20px;
+    background: #bbb;
+    text-transform: uppercase;
+}
+
+.debug-tools > .body {
+    padding: 10px;
+}
+
+.start, .stop {
+    float: left;
+    width: 45%;
+}
+
+.start {
+    margin-right: 10%;
+    background-color: #4cbb17
+}
+
+.stop {
+    background-color: #DC143C;
+}
+
+
+.map-name {
+    float: left;
+    width: 80%;
+    border: 1px solid #AAA;
+    border-right: none;
+}
+
+.load-map {
+    width: 20%;
+    height: 40px;
+    padding: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    float: left;
+    background: #1034a6;
+}
+
+.toggleMode,
+.visualizeCol {
+    background-color: #6c757d;
+}
