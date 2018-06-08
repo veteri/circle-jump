@@ -50,7 +50,11 @@ function Map(author = null, name = null) {
 
     this.scripts = {
         bounceEvent: null
-    }
+    };
+
+    let canvas = UIController.canvas.get();
+    this.cameraXRenderOffset =  parseInt((canvas.width / this.tileHeight) / 2) + 4;
+    this.cameraYRenderOffset =  parseInt((canvas.width / this.tileHeight) / 2) + 4;
 
 }
 
@@ -392,9 +396,9 @@ Map.prototype = {
         let tx = Math.floor((camera.x + (camera.width / 2)) / this.tileWidth);
         let ty = Math.floor((camera.y + (camera.height / 2)) / this.tileHeight);
 
-        for (let y = ty - 20; y < ty + 28; y++) {
+        for (let y = ty - this.cameraYRenderOffset; y < ty + this.cameraYRenderOffset; y++) {
 
-            for (let x = tx - 40; x < tx + 40; x++) {
+            for (let x = tx - this.cameraXRenderOffset; x < tx + this.cameraXRenderOffset; x++) {
 
                 if (y >= 0 && x >= 0
                     && y < this.levels[active].length
@@ -420,6 +424,13 @@ Map.prototype = {
                 }
             }
         }
+
+    },
+
+    calculateCameraRenderOffset: function() {
+        let canvas = UIController.canvas.get();
+        this.cameraXOffset =  parseInt((canvas.width / this.tileHeight) / 2);
+        this.cameraYOffset =  parseInt((canvas.width / this.tileHeight) / 2);
 
     },
 
