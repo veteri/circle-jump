@@ -5,133 +5,296 @@
     color: #333;
 }
 
+html {
+  font-size: 16px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  display: inline-block;
+  padding: 10px;
+  height: 40px;
+}
+
 canvas {
     display: block;
     width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.debug-tools {
+  background: #f4f4f4;
+}
+
+.debug-tools > .header {
+  text-align: center;
+  padding: 20px;
+  color: #f9f9f9;
+  font-size: 20px;
+  background: #bbb;
+  text-transform: uppercase;
+}
+
+.debug-tools > .body {
+  padding: 10px;
+}
+
+.debug-tools .controls > .start,
+.debug-tools .controls > .stop {
+  float: left;
+  width: 45%;
+}
+
+.debug-tools .controls > .start {
+  margin-right: 10%;
+  background-color: #4cbb17
+}
+
+.debug-tools .controls > .stop {
+  background-color: #DC143C;
+}
+
+
+.debug-tools .map-loader > .map-name {
+  float: left;
+  width: 80%;
+  border: 1px solid #AAA;
+  border-right: none;
+}
+
+.debug-tools .map-loader > .load-map {
+  width: 20%;
+  height: 40px;
+  padding: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  float: left;
+  background: #1034a6;
+}
+
+
+.debug-tools .render-controls > .toggleMode,
+.debug-tools .render-controls > .visualizeCol {
+  background-color: #6c757d;
+}
+
 .game {
     position: relative;
+    height: 880px;
     background: #000;
 }
 
-.loading-info {
+.game > canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.game > .loading-info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.loading-info > .spinner {
+.game > .loading-info > .spinner {
     width: 100%;
     text-align: center;
 }
 
-.lds-bluecat {
+.game > .loading-info > .spinner > .lds-bluecat {
     width: 300px;
 }
 
-.progress-bar {
+.game > .loading-info > .progress-bar {
     margin-top: 50px;
     width: 600px;
     height: 30px;
     border: 3px solid #fff;
 }
 
-.progress {
+.game > .loading-info > .progress-bar > .progress {
     height: 100%;
     background-color: dodgerblue;
     width: 0;
 }
 
-.hidden {
-    display: none;
+.game > .game-menus {
+  position: relative;
+  padding: 50px;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/menu/game_background_3. 2.png');
+  background-size: cover;
 }
 
-.clearfix:after {
-    display: block;
-    content: "";
-    clear: both;
+.game > .game-menus > .menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  border-radius: 10px;
+  background: rgba(0,0,0, 0.7);
+  overflow: hidden;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  font-size: 1.5rem;
 }
 
-
-.image-loading {
-    display: none;
+.game > .game-menus > .menu > .button {
+  position: relative;
+  width: 100%;
+  padding: 20px;
 }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border-radius: 3px;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 10px;
+.game > .game-menus > .menu > .button:hover {
+  background: linear-gradient(to right, #0b4ea6,#21a6e4);
+  cursor: pointer;
 }
 
-input {
-    width: 100%;
-    display: inline-block;
-    padding: 10px;
-    height: 40px;
+.game > .game-menus > .menu > .button > img {
+  width: 100px;
 }
 
-button, input {
-    z-index: 1338;
+.game > .game-menus > .menu > .list {
+  width: 100%;
+  height: 300px;
+  background: rgba(0,0,0, 0.4);
+  overflow-y: scroll;
+  margin: 0 auto;
 }
 
-
-.debug-tools {
-    background: #f4f4f4;
+.game > .game-menus > .menu > .list > .item {
+  padding: 10px;
+  text-align: center;
+  color: #40dbf0;
 }
 
-.header {
-    text-align: center;
-    padding: 20px;
-    color: #f9f9f9;
-    font-size: 20px;
-    background: #bbb;
-    text-transform: uppercase;
+.game > .game-menus > .menu > .list > .item:hover {
+  color: #e6e6e6;
+  background: linear-gradient(to right, #0b4ea6,#21a6e4);
+  cursor: pointer;
 }
 
-.debug-tools > .body {
-    padding: 10px;
+.game > .game-menus > .menu > .list > .item.selected {
+  color: #e6e6e6;
+  background: linear-gradient(to right, orangered, orange);
 }
 
-.start, .stop {
-    float: left;
-    width: 45%;
+.game > .game-menus > .main {
+
 }
 
-.start {
-    margin-right: 10%;
-    background-color: #4cbb17
+.game > .game-menus > .main > .button {
+  transition: width 0.2s, border 0.2s;
 }
 
-.stop {
-    background-color: #DC143C;
+.game > .game-menus > .main > .button > img {
+  float: left;
+  transition: all 0.2s ease-in-out;
 }
 
-
-.map-name {
-    float: left;
-    width: 80%;
-    border: 1px solid #AAA;
-    border-right: none;
+.game > .game-menus > .main > .button > .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #40dbf0;
+  transition: all 0.2s;
 }
 
-.load-map {
-    width: 20%;
-    height: 40px;
-    padding: 10px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    float: left;
-    background: #1034a6;
+.game > .game-menus > .main > .button:hover {
+
 }
 
-.toggleMode,
-.visualizeCol {
-    background-color: #6c757d;
+.game .game-menus > .main > .button:hover > img {
+  transform: scale(1.04);
 }
+
+.game > .game-menus > .main > .button:hover > .label {
+  color: #e6e6e6;
+  left: 52%;
+}
+
+.game > .game-menus > .map-selection {
+  padding: 20px;
+}
+
+.game > .game-menus > .map-selection > .header {
+  text-align: center;
+  color: #e6e6e6;
+  font-size: 3rem;
+}
+
+.game > .game-menus > .map-selection > .selection {
+  text-align: center;
+  color: #4cbb17;
+}
+
+.game > .game-menus > .map-selection > .list {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.game > .game-menus > .map-selection > .selection > .map {
+  color: #4cbb17;
+}
+
+.game > .game-menus > .map-selection > .notice {
+  color: yellow;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game > .game-menus > .map-selection > .confirm {
+  position: relative;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+.game > .game-menus > .map-selection > .confirm:active img {
+  transform: translate(0, 2%);
+
+}
+
+.game > .game-menus > .map-selection > .confirm img {
+  width: auto;
+  height: 75px;
+}
+
+.game > .game-menus > .map-selection > .confirm > .confirm-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  color: #e6e6e6;
+  transition: translate 0.2s;
+}
+
+.game > .game-menus > .map-selection > .confirm:active > .confirm-text {
+  transform: translate(-50%, -55%);
+}
+
