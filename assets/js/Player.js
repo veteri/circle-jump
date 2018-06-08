@@ -53,7 +53,11 @@ Player.prototype = {
 
     assets: {
         sprites: {
-            static: ["assets/images/player/static-cat-test.png"]
+            static: ["assets/images/player/static-cat-test.png"],
+            running: [
+
+            ]
+
         }
     },
 
@@ -106,20 +110,20 @@ Player.prototype = {
 
         switch (this.physicMode) {
             case 1:
-                modeScale = {vx: 1.5, vy: 0};
+                modeScale = {vx: 1.8, vy: 0};
                 break;
             case 2:
-                modeScale = {vx: 1.1, vy: -0.01};
+                modeScale = {vx: 1.5, vy: -0.01};
                 break;
             case 3:
-                modeScale = {vx: 1.05, vy: -0.02};
+                modeScale = {vx: 1.1, vy: -0.02};
                 break;
         }
 
 
         overlapX += 1;
         hitScale = -0.2 / 29 * overlapX + 6 / 29;
-        this.vy *= -1.00 - hitScale + modeScale.vy;
+        this.vy *= -0.95 - hitScale + modeScale.vy;
         this.vx *= modeScale.vx;
     },
 
@@ -311,12 +315,8 @@ Player.prototype = {
         this.x = this.x + (delta * this.vx);
         this.y = this.y + (delta * this.vy);
 
-        if (Math.abs(this.vx) > this.maxdx) {
-            this.vx *= 0.99;
-        } else {
-            this.vx = this.vx + this.ddx;
-        }
-       // this.vx = this.bound(this.vx + this.ddx, -this.maxdx, this.maxdx);
+
+        this.vx = this.bound(this.vx + this.ddx, -this.maxdx, this.maxdx);
         this.vy = this.bound(this.vy + this.ddy, -this.maxdy, this.maxdy);
 
         if ((wasleft && (this.vx > 0))
@@ -331,10 +331,11 @@ Player.prototype = {
 
     },
 
-    draw: function (context, camera) {
+    draw: function (context, camera, frameCount) {
         context.drawImage(this.sprites.static, parseInt(this.x - camera.x), parseInt(this.y - camera.y), this.width, this.height);
         context.font = "38px Arial";
         context.fillText(this.physicMode === 1 ? "125" : this.physicMode === 2 ? "250" : "333", 60, 60);
+        context.fillText(frameCount, 200, 60);
     },
 
     savePosition: function (force = false) {
