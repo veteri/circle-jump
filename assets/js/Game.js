@@ -9,6 +9,13 @@ function Game(fps, map, player) {
      */
     this.fps       = fps;
 
+
+    /**
+     * The amount of frames the game has displayed so far.
+     * @type {number}
+     */
+    this.frameCount = 0;
+
     /**
      * A high resolution timestamp used to determine the
      * time of the current gametick.
@@ -40,13 +47,6 @@ function Game(fps, map, player) {
      */
     this.player    = player;
 
-    /**
-     * Used to enable a scrolling and following camera effect.
-     * It is highly recommended to set the it to the same
-     * dimensions as the canvas.
-     * @type {Camera}
-     */
-    this.camera    = new Camera(0, 0, 1920, 1080);
 
     /**
      * The HTML Canvas DOM Element
@@ -58,6 +58,14 @@ function Game(fps, map, player) {
      * @type {*}
      */
     this.context   = this.canvas.getContext("2d");
+
+    /**
+     * Used to enable a scrolling and following camera effect.
+     * It is highly recommended to set the it to the same
+     * dimensions as the canvas.
+     * @type {Camera}
+     */
+    this.camera    = new Camera(0, 0, canvas.width, canvas.height);
 
     /**
      * A flag to determine if a render call is necessary.
@@ -369,10 +377,10 @@ Game.prototype = {
     /**
      * Renders everything.
      */
-    render: function () {
+    render: function (frameCount) {
         //UIController.canvas.reset();
         this.map.draw(this.context, this.camera);
-        this.player.draw(this.context, this.camera);
+        this.player.draw(this.context, this.camera, this.frameCount);
 
         if (this.player.SHOW_COLLISION) {
             this.player.drawCollision(this.map, this.camera);
@@ -386,7 +394,7 @@ Game.prototype = {
      * @param delta
      */
     update: function (delta) {
-        this.player.update(delta, this.map);
+        this.player.update2(delta, this.map);
         this.camera.update(this.player);
     },
 
@@ -463,7 +471,7 @@ Game.prototype = {
 
         //Only render the scene if we updated
         if (this.updated) {
-            this.render();
+            this.render(++this.frameCount);
         }
 
         this.last = this.now;
