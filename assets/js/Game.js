@@ -5,6 +5,13 @@
 function Game(fps, map, player) {
 
     /**
+     * Used to determine if the game is running right
+     * now or is suspended, most likely for some menu.
+     * @type {number}
+     */
+    this.state = this.states.menu;
+
+    /**
      * The fps at which the game will base its physics on.
      */
     this.fps       = fps;
@@ -108,6 +115,11 @@ function Game(fps, map, player) {
 }
 
 Game.prototype = {
+
+    states: {
+        play: 0,
+        menu: 1
+    },
 
     /**
      * The games config object containing multiple settings
@@ -406,6 +418,7 @@ Game.prototype = {
     start: function () {
         if (!this.requestId) {
             window.requestAnimationFrame(this.tick.bind(this));
+            this.state = this.states.play;
             console.info("Started game.");
         } else {
             console.warn("Game is already running.");
@@ -423,6 +436,7 @@ Game.prototype = {
     stop: function (reason) {
         if (this.requestId) {
             window.cancelAnimationFrame(this.requestId);
+            this.state = this.states.menu;
             this.requestId = null;
             console.warn(this.config.suspensions[reason]);
         }
