@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cj.20iq.club.iml" filepath="$PROJECT_DIR$/.idea/cj.20iq.club.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/circlejump.iml" filepath="$PROJECT_DIR$/.idea/circlejump.iml" />
+      <module fileurl="file://C:\Users\Midi\Documents\circlejump\.idea\cj.20iq.club.iml" filepath="C:\Users\Midi\Documents\circlejump\.idea\cj.20iq.club.iml" />
     </modules>
   </component>
 </project>

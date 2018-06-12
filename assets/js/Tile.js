@@ -142,6 +142,10 @@ Tile.prototype = {
         return this.type >= 1 && this.type <= 16;
     },
 
+    isFlag: function() {
+        return this.type === 43;
+    },
+
     debugDraw: function(camera) {
         this.context.lineWidth = 3;
         this.context.strokeStyle = "red";

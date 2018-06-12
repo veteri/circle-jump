@@ -60,6 +60,7 @@ var AppController = (function () {
 
             //Hide any error notice that was previously visible
             menus.mapSelection.notice.fadeOut(300);
+            menus.mapSelection.notice.addClass("invisible");
         });
 
         menus.mapSelection.confirmPlay.on("click", function() {

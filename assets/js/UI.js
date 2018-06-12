@@ -3,7 +3,7 @@
  */
 
 
-const UIController = (function() {
+const UIController = UI = (function() {
 
     let config = {
         canvasWidth: 1920,

@@ -157,6 +157,7 @@ Player.prototype = {
         let rbCorner = map.getTileByCoordinates(this.x + this.width - 1, this.y + this.height);
 
 
+        //Check for bounce
         if (this.vy > 0 && (lbCorner.isBounce() || rbCorner.isBounce())) {
             let bounceTile = lbCorner.isBounce() ? lbCorner : rbCorner;
             this.bounce(map.tileWidth);
@@ -167,13 +168,17 @@ Player.prototype = {
 
         }
 
+        //Check for finish
+        this.levelComplete =  tile.isFlag() || tileRight.isFlag() || tileDown.isFlag() || tileDiag.isFlag(); //lbCorner.isFlag() || rbCorner.isFlag();
+
+
         //Vertical Collision
         if (this.vy > 0) {
 
             if ((tileDown.isObstacle() && !tile.isObstacle())
                 || (tileDiag.isObstacle() && !tileRight.isObstacle() && overX > (map.tileWidth - this.width) && !overY)) {
 
-                console.log("hit ground");
+                //console.log("hit ground");
 
                 this.y = map.tileToCoordinate(ty, "y");
                 this.vy = 0;
@@ -183,7 +188,7 @@ Player.prototype = {
             if ((tile.isObstacle() && !tileDown.isObstacle())
                 || tileRight.isObstacle() && !tileDiag.isObstacle() && overX && !overY) {
 
-                console.log("hit head");
+                //console.log("hit head");
 
                 this.y = map.tileToCoordinate(ty + 1, "y");
                 this.vy = 0;
@@ -199,7 +204,7 @@ Player.prototype = {
                     ((tileRight.isObstacle() && !tile.isObstacle())
                     || (tileDiag.isObstacle() && !tileDown.isObstacle() && overY))) {
 
-                console.log("hit right");
+                //console.log("hit right");
 
                 this.x = map.tileToCoordinate(tx, "x") + map.tileWidth - this.width;
                 this.vx = 0;
@@ -215,7 +220,7 @@ Player.prototype = {
             if (tile.isObstacle() && !tileRight.isObstacle()
                 || tileDown.isObstacle() && !tileDiag.isObstacle() && overY) {
 
-                console.log("hit left");
+                //console.log("hit left");
 
                 this.x = map.tileToCoordinate(tx + 1, "x");
                 this.vx = 0;
@@ -327,7 +332,6 @@ Player.prototype = {
 
 
         this.handleCollision(map);
-
 
     },
 

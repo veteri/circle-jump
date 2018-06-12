@@ -37,7 +37,7 @@
             </div>
             <div class="column column-10">
                 <div class="game">
-                    <div class="loading-info hidden">
+                    <div class="loading-info ">
                         <div class="spinner">
                             <svg class="lds-bluecat" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
 
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="game-menus">
-                        <div class="menu main ">
+                        <div class="menu main hidden">
                             <div class="button clearfix" data-button="play">
                                 <img src="/assets/images/menu/play.png" alt="">
                                 <div class="label">Play</div>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="menu map-selection hidden">
-                            <div class="header">
+                            <div class="title">
                                 <img src="" alt="">
                                 Map selection
                             </div>
@@ -111,7 +111,7 @@
                             <div class="list">
                                 <div class="item map" data-map="tutorial">Tutorial</div>
                                 <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map selected" data-map="tutorial">Tutorial</div>
+                                <div class="item map" data-map="tutorial">Tutorial</div>
                                 <div class="item map" data-map="tutorial">Tutorial</div>
                                 <div class="item map" data-map="tutorial">Tutorial</div>
                                 <div class="item map" data-map="tutorial">Tutorial</div>
@@ -123,7 +123,7 @@
                                 <div class="item map" data-map="tutorial">Tutorial</div>
                                 <div class="item map" data-map="tutorial">Tutorial</div>
                             </div>
-                            <div class="notice hidden">
+                            <div class="notice invisible">
                                 Please select a map.
                             </div>
                             <div class="confirm">
@@ -131,7 +131,113 @@
                                 <span class="confirm-text">Play</span>
                             </div>
                         </div>
-                    </div>
+                        <div class="menu leaderboard ">
+                            <div class="title">
+                                Leaderboard
+                            </div>
+                            <div class="body clearfix">
+                                    <div class="maps">
+                                        <div class="subtitle">Maps</div>
+                                        <div class="list">
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map selected" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
+                                        </div>
+                                    </div>
+                                    <div class="map-leaderboard">
+                                        <div class="subtitle">
+                                            Scores for <span class="map">Tutorial</span>
+                                        </div>
+                                        <div class="trophies clearfix">
+                                            <div class="first clearfix">
+                                                <img class="flare" src="/assets/images/menu/rank1flare2.png" alt="">
+                                                <img class="trophy" src="/assets/images/menu/trophy_gold.png" alt="">
+                                                <div class="player">name1</div>
+                                            </div>
+                                            <div class="second clearfix">
+                                                <img class="trophy" src="/assets/images/menu/trophy_silver.png" alt="">
+                                                <div class="player">name2</div>
+                                            </div>
+                                            <div class="third clearfix">
+                                                <img class="trophy" src="/assets/images/menu/trophy_bronze.png" alt="">
+                                                <div class="player">name3</div>
+                                            </div>
+                                        </div>
+                                        <div class="rankings">
+                                            <div class="header clearfix">
+                                                <div class="rank">Rank</div>
+                                                <div class="name">Name</div>
+                                                <div class="time">Time</div>
+                                            </div>
+                                            <div class="body">
+                                                <div class="score clearfix">
+                                                    <div class="rank">1</div>
+                                                    <div class="name">name1</div>
+                                                    <div class="time">02:25.241</div>
+                                                </div>
+                                                <div class="score clearfix">
+                                                    <div class="rank">2</div>
+                                                    <div class="name">name2</div>
+                                                    <div class="time">02:27.523</div>
+                                                </div>
+                                                <div class="score clearfix">
+                                                    <div class="rank">3</div>
+                                                    <div class="name">name3</div>
+                                                    <div class="time">02:28.778</div>
+                                                </div>
+                                                <div class="score clearfix">
+                                                    <div class="rank">4</div>
+                                                    <div class="name">bla</div>
+                                                    <div class="time">02:28.778</div>
+                                                </div>
+                                                <div class="score clearfix">
+                                                    <div class="rank">5</div>
+                                                    <div class="name">yes</div>
+                                                    <div class="time">02:28.778</div>
+                                                </div>
+                                                <div class="score clearfix">
+                                                    <div class="rank">6</div>
+                                                    <div class="name">no</div>
+                                                    <div class="time">02:28.778</div>
+                                                </div>
+                                                <div class="score clearfix">
+                                                    <div class="rank">7</div>
+                                                    <div class="name">maybe</div>
+                                                    <div class="time">02:28.778</div>
+                                                </div>
+                                            </div>
+
+                                        </div> <!-- rankings -->
+
+                                    </div> <!-- map-leaderboard -->
+
+                            </div> <!-- leaderboard menu body -->
+
+                        </div> <!-- leaderboard menu -->
+
+                    </div> <!-- game menus -->
                     <canvas id="canvas" class="hidden" width="1600" height="900">
                         <div class="canvas-no-support">
                             <p>It seems like your browser does not support the canvas element.</p>

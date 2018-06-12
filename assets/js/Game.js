@@ -406,7 +406,14 @@ Game.prototype = {
      * @param delta
      */
     update: function (delta) {
+
         this.player.update2(delta, this.map);
+
+        if (this.player.levelComplete) {
+            console.log("Player touches flag");
+            this.player.levelComplete = false;
+        }
+
         this.camera.update(this.player);
     },
 

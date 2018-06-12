@@ -2,12 +2,13 @@
     box-sizing: border-box;
     font-family: "Luckiest Guy", sans-serif;
     letter-spacing: 2px;
-    color: #333;
+    /*color: #333;*/
 }
 
 html {
   font-size: 16px;
 }
+
 
 button {
   display: block;
@@ -32,8 +33,49 @@ canvas {
     width: 100%;
 }
 
+@keyframes glow_gold {
+  from {
+    text-shadow: 0 0 20px gold;
+  }
+  to {
+    text-shadow: 0 0 40px gold;
+  }
+}
+
+@keyframes glow_silver {
+  from {
+    text-shadow: 0 0 15px silver;
+  }
+  to {
+    text-shadow: 0 0 30px silver;
+  }
+}
+
+@keyframes glow_bronze {
+  from {
+    text-shadow: 0 0 15px #cd7f32;
+  }
+  to {
+    text-shadow: 0 0 30px #cd7f32;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .clearfix:after {
@@ -139,12 +181,16 @@ canvas {
     width: 0;
 }
 
+/**************************************\
+|*      Game menu common               |
+\**************************************/
+
 .game > .game-menus {
   position: relative;
   padding: 50px;
   width: 100%;
   height: 100%;
-  background: url('/assets/images/menu/game_background_3. 2.png');
+  background: url('/assets/images/menu/menu_bg.png');
   background-size: cover;
 }
 
@@ -161,22 +207,37 @@ canvas {
   font-size: 1.5rem;
 }
 
-.game > .game-menus > .menu > .button {
+.game > .game-menus > .menu .title,
+.game > .game-menus > .menu .subtitle {
+  padding: 10px;
+  text-align: center;
+  color: #e6e6e6;
+}
+
+.game > .game-menus > .menu .title {
+  font-size: 3rem;
+}
+
+.game > .game-menus > .menu .subtitle {
+  font-size: 2rem;
+}
+
+.game > .game-menus > .menu .button {
   position: relative;
   width: 100%;
   padding: 20px;
 }
 
-.game > .game-menus > .menu > .button:hover {
+.game > .game-menus > .menu .button:hover {
   background: linear-gradient(to right, #0b4ea6,#21a6e4);
   cursor: pointer;
 }
 
-.game > .game-menus > .menu > .button > img {
+.game > .game-menus > .menu .button > img {
   width: 100px;
 }
 
-.game > .game-menus > .menu > .list {
+.game > .game-menus > .menu .list {
   width: 100%;
   height: 300px;
   background: rgba(0,0,0, 0.4);
@@ -184,22 +245,27 @@ canvas {
   margin: 0 auto;
 }
 
-.game > .game-menus > .menu > .list > .item {
+.game > .game-menus > .menu .list > .item {
   padding: 10px;
   text-align: center;
   color: #40dbf0;
 }
 
-.game > .game-menus > .menu > .list > .item:hover {
+.game > .game-menus > .menu .list > .item:hover {
   color: #e6e6e6;
   background: linear-gradient(to right, #0b4ea6,#21a6e4);
   cursor: pointer;
 }
 
-.game > .game-menus > .menu > .list > .item.selected {
+.game > .game-menus > .menu .list > .item.selected {
   color: #e6e6e6;
   background: linear-gradient(to right, orangered, orange);
 }
+
+
+/**************************************\
+|*      Game main menu                 |
+\**************************************/
 
 .game > .game-menus > .main {
 
@@ -237,15 +303,14 @@ canvas {
   left: 52%;
 }
 
+/**************************************\
+|*      Game map selection menu        |
+\**************************************/
+
 .game > .game-menus > .map-selection {
   padding: 20px;
 }
 
-.game > .game-menus > .map-selection > .header {
-  text-align: center;
-  color: #e6e6e6;
-  font-size: 3rem;
-}
 
 .game > .game-menus > .map-selection > .selection {
   text-align: center;
@@ -296,5 +361,157 @@ canvas {
 
 .game > .game-menus > .map-selection > .confirm:active > .confirm-text {
   transform: translate(-50%, -55%);
+}
+
+
+/**************************************\
+|*      Game leaderboard menu          |
+\**************************************/
+
+.game > .game-menus > .leaderboard.menu {
+  width: 80%;
+  height: 700px;
+  padding: 10px;
+}
+
+.game > .game-menus > .leaderboard.menu > .body {
+  height: 590px;
+  margin-top: 10px;
+}
+
+.game > .game-menus > .leaderboard.menu .maps,
+.game > .game-menus > .leaderboard.menu .map-leaderboard {
+  float: left;
+  height: 590px;
+}
+
+.game > .game-menus > .leaderboard.menu .maps {
+  width: 30%;
+}
+
+.game > .game-menus > .leaderboard.menu .maps .list {
+  height: calc(100% - 60px);
+}
+
+.game > .game-menus > .leaderboard.menu .map-leaderboard {
+  float: right;
+  width: calc(70% - 10px);
+}
+
+.game > .game-menus > .leaderboard.menu .title {
+  background: #212529;
+}
+
+.game > .game-menus > .leaderboard.menu .subtitle {
+  position: relative;
+  z-index: 2;
+  background-color: #212529;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies {
+  margin-top: 10px;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .first {
+  position: relative;
+  width: 40%;
+  margin-left: 38%;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .second,
+.game > .game-menus > .leaderboard.menu .trophies > .third {
+  float: left;
+  width: 40%;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .second {
+  margin-left: 20%;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .first .player {
+  animation: glow_gold 2s infinite alternate;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .second .player {
+  animation: glow_silver 2s infinite alternate;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .third .player {
+  animation: glow_bronze 2s infinite alternate;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies .trophy,
+.game > .game-menus > .leaderboard.menu .trophies .player {
+  float: left;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies .trophy {
+  height: 80px;
+  max-width: 50%;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .first .flare {
+  width: 180px;
+  position: absolute;
+  top: -50px;
+  left: -40px;
+  animation: spin 15s infinite linear;
+  z-index:1;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies .player {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  line-height: 100px;
+  color: #e6e6e6;
+  padding-left: 10px;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .first .trophy {
+  height: 100px;
+  position: relative;
+  z-index: 2;
+
+}
+
+.game > .game-menus > .leaderboard.menu .map-leaderboard .subtitle .map {
+  color: #4cbb17;
+}
+
+.game > .game-menus > .leaderboard.menu .rankings .body {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.game > .game-menus > .leaderboard.menu .rankings .header {
+  padding: 10px;
+  background: #212529;
+  font-size: 2rem;
+  color: #e6e6e6;
+}
+
+.game > .game-menus > .leaderboard.menu .rankings .score {
+  padding: 10px;
+  background: rgba(0,0,0, 0.4);
+}
+
+.game > .game-menus > .leaderboard.menu .rankings .rank {
+  float: left;
+  width: 20%;
+}
+
+.game > .game-menus > .leaderboard.menu .rankings .name {
+  float: left;
+  width: 50%;
+}
+
+.game > .game-menus > .leaderboard.menu .rankings .time {
+  float: left;
+  width: 30%;
+}
+
+.game > .game-menus > .leaderboard.menu .map-leaderboard thead th {
+  color: #f6f6f6;
 }
 
