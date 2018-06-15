@@ -394,8 +394,25 @@ canvas {
 }
 
 .game > .game-menus > .leaderboard.menu .map-leaderboard {
+  position: relative;
   float: right;
   width: calc(70% - 10px);
+}
+
+.game > .game-menus > .leaderboard.menu .map-leaderboard .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+
+.game > .game-menus > .leaderboard.menu .map-leaderboard .no-selection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: yellow;
 }
 
 .game > .game-menus > .leaderboard.menu .title {

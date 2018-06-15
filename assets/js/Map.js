@@ -19,32 +19,32 @@ function Map(author = null, name = null) {
 
     this.backgrounds = {
         /* Each will be filled by Game.loadAssets with image objects */
-        NightForest: [],
-        MountainLake: [],
-        CloudyMountains: [],
-        NightAquaForest: [],
-        MistyForest: [],
-        QuackCity: [],
-        QuackCityNight: [],
-        BlueNebula: [],
-        RedNebula: [],
-        RGNebula: [],
-        Saturn: [],
-        ShootingStar: [],
+        NightForest      : [],
+        MountainLake     : [],
+        CloudyMountains  : [],
+        NightAquaForest  : [],
+        MistyForest      : [],
+        QuackCity        : [],
+        QuackCityNight   : [],
+        BlueNebula       : [],
+        RedNebula        : [],
+        RGNebula         : [],
+        Saturn           : [],
+        ShootingStar     : [],
         CandyCloudKingdom: [],
-        SaharaDesert: [],
+        SaharaDesert     : [],
         BalmoralMountains: [],
         DesolateMountains: [],
-        TundraDawn: [],
-        CrystalDesert: [],
-        CrystalValley: [],
-        DragonForest: [],
-        FourKingsForest: [],
-        IceNebula: [],
-        NorthernLight: [],
-        PurpleNebula: [],
-        Sphinx: [],
-        SnowOwl: [],
+        TundraDawn       : [],
+        CrystalDesert    : [],
+        CrystalValley    : [],
+        DragonForest     : [],
+        FourKingsForest  : [],
+        IceNebula        : [],
+        NorthernLight    : [],
+        PurpleNebula     : [],
+        Sphinx           : [],
+        SnowOwl          : [],
 
     };
 
@@ -59,7 +59,7 @@ function Map(author = null, name = null) {
 }
 
 Map.prototype = {
-    
+
     config: {
         ALLOW_CUSTOM_GRAVITY: false,
         DEFAULT_GRAVITY: 8,

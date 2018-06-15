@@ -23,6 +23,9 @@ function Game(fps, map, player) {
      */
     this.frameCount = 0;
 
+
+    this.timePassed = 0;
+
     /**
      * A high resolution timestamp used to determine the
      * time of the current gametick.
@@ -131,7 +134,8 @@ Game.prototype = {
         suspensions: {
             pause: "Game suspended: Pause",
             loadMap: "Game suspended: Loading map",
-            changeBg: "Game suspended: Changing background scene"
+            changeBg: "Game suspended: Changing background scene",
+            mapComplete: "Game suspended: Map has been completed"
         }
     },
 
@@ -391,6 +395,7 @@ Game.prototype = {
      */
     render: function (frameCount) {
         //UIController.canvas.reset();
+
         this.map.draw(this.context, this.camera);
         this.player.draw(this.context, this.camera, this.frameCount);
 
@@ -398,6 +403,7 @@ Game.prototype = {
             this.player.drawCollision(this.map, this.camera);
         }
 
+        this.context.fillText(this.timePassed.toFixed(3) ,400, 50);
         //this.camera.draw(this.context);
     },
 
@@ -410,7 +416,8 @@ Game.prototype = {
         this.player.update2(delta, this.map);
 
         if (this.player.levelComplete) {
-            console.log("Player touches flag");
+            this.stop("mapComplete");
+            alert("You have finished the map in " + this.timePassed + "s.");
             this.player.levelComplete = false;
         }
 
@@ -464,6 +471,7 @@ Game.prototype = {
 
         //Time since last tick + left over time that needs to be processed yet.
         this.delta    += (this.now - this.last) / 1000;
+        this.timePassed += (this.now - this.last) / 1000;
 
         //Resetting the update flag.
         this.updated   = false;

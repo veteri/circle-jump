@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Circle Jump (CJ)</title>
         <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/grid.css">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="game-menus">
-                        <div class="menu main hidden">
+                        <div class="menu main ">
                             <div class="button clearfix" data-button="play">
                                 <img src="/assets/images/menu/play.png" alt="">
                                 <div class="label">Play</div>
@@ -131,7 +131,7 @@
                                 <span class="confirm-text">Play</span>
                             </div>
                         </div>
-                        <div class="menu leaderboard ">
+                        <div class="menu leaderboard hidden">
                             <div class="title">
                                 Leaderboard
                             </div>
@@ -141,7 +141,7 @@
                                         <div class="list">
                                             <div class="item map" data-map="tutorial">Tutorial</div>
                                             <div class="item map" data-map="tutorial">Tutorial</div>
-                                            <div class="item map selected" data-map="tutorial">Tutorial</div>
+                                            <div class="item map" data-map="tutorial">Tutorial</div>
                                             <div class="item map" data-map="tutorial">Tutorial</div>
                                             <div class="item map" data-map="tutorial">Tutorial</div>
                                             <div class="item map" data-map="tutorial">Tutorial</div>
@@ -167,10 +167,16 @@
                                         </div>
                                     </div>
                                     <div class="map-leaderboard">
-                                        <div class="subtitle">
+                                        <div class="loader hidden">
+                                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-magnify"><g transform="translate(50,50)"><g ng-attr-transform="scale({{config.scale}})" transform="scale(0.8)"><g transform="translate(-50,-50)"><g><animateTransform attributeName="transform" type="translate" calcMode="linear" values="-20 -20;20 -20;0 20;-20 -20" keyTimes="0;0.33;0.66;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform><path ng-attr-fill="{{config.glass}}" d="M44.19,26.158c-4.817,0-9.345,1.876-12.751,5.282c-3.406,3.406-5.282,7.934-5.282,12.751 c0,4.817,1.876,9.345,5.282,12.751c3.406,3.406,7.934,5.282,12.751,5.282s9.345-1.876,12.751-5.282 c3.406-3.406,5.282-7.934,5.282-12.751c0-4.817-1.876-9.345-5.282-12.751C53.536,28.033,49.007,26.158,44.19,26.158z" fill="#45aee7"></path><path ng-attr-fill="{{config.frame}}" d="M78.712,72.492L67.593,61.373l-3.475-3.475c1.621-2.352,2.779-4.926,3.475-7.596c1.044-4.008,1.044-8.23,0-12.238 c-1.048-4.022-3.146-7.827-6.297-10.979C56.572,22.362,50.381,20,44.19,20C38,20,31.809,22.362,27.085,27.085 c-9.447,9.447-9.447,24.763,0,34.21C31.809,66.019,38,68.381,44.19,68.381c4.798,0,9.593-1.425,13.708-4.262l9.695,9.695 l4.899,4.899C73.351,79.571,74.476,80,75.602,80s2.251-0.429,3.11-1.288C80.429,76.994,80.429,74.209,78.712,72.492z M56.942,56.942 c-3.406,3.406-7.934,5.282-12.751,5.282s-9.345-1.876-12.751-5.282c-3.406-3.406-5.282-7.934-5.282-12.751 c0-4.817,1.876-9.345,5.282-12.751c3.406-3.406,7.934-5.282,12.751-5.282c4.817,0,9.345,1.876,12.751,5.282 c3.406,3.406,5.282,7.934,5.282,12.751C62.223,49.007,60.347,53.536,56.942,56.942z" fill="#0055a5"></path></g></g></g></g></svg>
+                                        </div>
+                                        <div class="no-selection">
+                                            Pick a map to see rankings.
+                                        </div>
+                                        <div class="subtitle hidden">
                                             Scores for <span class="map">Tutorial</span>
                                         </div>
-                                        <div class="trophies clearfix">
+                                        <div class="trophies hidden clearfix">
                                             <div class="first clearfix">
                                                 <img class="flare" src="/assets/images/menu/rank1flare2.png" alt="">
                                                 <img class="trophy" src="/assets/images/menu/trophy_gold.png" alt="">
@@ -185,7 +191,7 @@
                                                 <div class="player">name3</div>
                                             </div>
                                         </div>
-                                        <div class="rankings">
+                                        <div class="rankings hidden">
                                             <div class="header clearfix">
                                                 <div class="rank">Rank</div>
                                                 <div class="name">Name</div>
@@ -269,6 +275,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
         </script>
+        <!--<script src="assets/js/jquery-3.3.1.js"></script>-->
         <script src="assets/js/UI.js"></script>
         <script src="assets/js/Camera.js"></script>
         <script src="assets/js/Tile.js"></script>
