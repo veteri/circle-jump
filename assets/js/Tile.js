@@ -162,14 +162,32 @@ Tile.prototype = {
 
     drawAsWall: function (context, camera) {
         if (this.type === 0) return;
-        context.drawImage(
-            this.sprites[this.type],
-            this.x * this.width - parseInt(camera.x),
-            this.y * this.height - parseInt(camera.y),
-            30,
-            30
-        );
-        return;
+
+        if (!this.simpleMode) {
+            context.drawImage(
+                this.sprites[this.type],
+                this.x * this.width - parseInt(camera.x),
+                this.y * this.height - parseInt(camera.y),
+                30,
+                30
+            );
+        } else {
+            context.fillStyle = this.getColor();
+            context.fillRect(
+                this.x * this.width - camera.x,
+                this.y * this.height - camera.y,
+                this.width,
+                this.height
+            );
+
+            context.strokeStyle = "#000";
+            context.strokeRect(
+                this.x * this.width - camera.x,
+                this.y * this.height - camera.y,
+                this.width,
+                this.height
+            );
+        }
 
         /*if (!this.simpleMode) {
 
@@ -193,26 +211,6 @@ Tile.prototype = {
             return;
 
         }*/
-
-        //starting from here is simple mode render
-
-        context.fillStyle = this.getColor();
-
-        context.fillRect(
-            this.x * this.width - camera.x,
-            this.y * this.height - camera.y,
-            this.width,
-            this.height
-        );
-
-        context.strokeStyle = "#000";
-
-        context.strokeRect(
-            this.x * this.width - camera.x,
-            this.y * this.height - camera.y,
-            this.width,
-            this.height
-        )
     },
 
     drawAsBounce: function (context, camera) {

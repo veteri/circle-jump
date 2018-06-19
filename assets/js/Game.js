@@ -24,7 +24,16 @@ function Game(fps, map, player) {
     this.frameCount = 0;
 
 
+    /**
+     * The time that passed since the game has started
+     * rendering a map.
+     * Used to determine the time a player needed to
+     * finish a map.
+     * @type {number}
+     */
     this.timePassed = 0;
+
+    this.timePassedOffset = 0;
 
     /**
      * A high resolution timestamp used to determine the
@@ -135,8 +144,13 @@ Game.prototype = {
             pause: "Game suspended: Pause",
             loadMap: "Game suspended: Loading map",
             changeBg: "Game suspended: Changing background scene",
-            mapComplete: "Game suspended: Map has been completed"
+            mapComplete: "Game suspended: Map has been completed",
+            resetMap: "Game suspended: Level reset"
         }
+    },
+
+    controls: {
+        restartLevel: 88
     },
 
     /**
@@ -172,7 +186,15 @@ Game.prototype = {
 
         //Delegate keyup events to the player to decide what controls are no longer activated.
         document.addEventListener("keyup", function (event) {
-            return self.player.handleButtonEvent.bind(self.player)(event, event.keyCode, false);
+
+            switch(event.keyCode) {
+                case self.controls.restartLevel:
+                    self.retry();
+                    break;
+                default:
+                    self.player.handleButtonEvent.bind(self.player)(event, event.keyCode, false)
+            }
+
         });
 
         //@Debug Starts the game
@@ -304,7 +326,7 @@ Game.prototype = {
 
         return new Promise(function(resolve, reject) {
 
-            UIController.loader.show();
+            UIController.gameLoader.show();
 
             let assets = {
                 map: self.map.assets,
@@ -328,7 +350,7 @@ Game.prototype = {
 
                 if (--assetCount === 0) {
                     console.log("%c All game assets have been loaded.", "color: green");
-                    UIController.loader.hide();
+                    UIController.gameLoader.hide();
                     resolve();
                 }
 
@@ -362,6 +384,22 @@ Game.prototype = {
                 });
             });
         });
+    },
+
+    getPassedTime: function() {
+        return this.timePassed - this.timePassedOffset;
+    },
+
+    retry: function() {
+        this.stop("resetMap");
+        this.frameCount = 0;
+        this.delta = 0;
+        this.timePassedOffset = this.timePassed;
+        this.player.setPosition(
+            this.map.spawn[0],
+            this.map.spawn[1]
+        );
+        this.start();
     },
 
     /**
@@ -403,7 +441,7 @@ Game.prototype = {
             this.player.drawCollision(this.map, this.camera);
         }
 
-        this.context.fillText(this.timePassed.toFixed(3) ,400, 50);
+        this.context.fillText("Time: " + this.getPassedTime().toFixed(3) , 650, 50);
         //this.camera.draw(this.context);
     },
 
@@ -416,9 +454,8 @@ Game.prototype = {
         this.player.update2(delta, this.map);
 
         if (this.player.levelComplete) {
+            alert("You have finished the map in " + this.getPassedTime() + "s.");
             this.stop("mapComplete");
-            alert("You have finished the map in " + this.timePassed + "s.");
-            this.player.levelComplete = false;
         }
 
         this.camera.update(this.player);
@@ -471,7 +508,6 @@ Game.prototype = {
 
         //Time since last tick + left over time that needs to be processed yet.
         this.delta    += (this.now - this.last) / 1000;
-        this.timePassed += (this.now - this.last) / 1000;
 
         //Resetting the update flag.
         this.updated   = false;
@@ -502,8 +538,10 @@ Game.prototype = {
         if (this.updated) {
             this.render(++this.frameCount);
         }
+        this.timePassed += (this.now - this.last) / 1000;
 
         this.last = this.now;
+
     },
 
     init: function () {

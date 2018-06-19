@@ -169,7 +169,7 @@ Player.prototype = {
         }
 
         //Check for finish
-        this.levelComplete =  tile.isFlag() || tileRight.isFlag() || tileDown.isFlag() || tileDiag.isFlag(); //lbCorner.isFlag() || rbCorner.isFlag();
+        this.levelComplete =  !this.levelComplete && tile.isFlag() || tileRight.isFlag() || tileDown.isFlag() || tileDiag.isFlag(); //lbCorner.isFlag() || rbCorner.isFlag();
 
 
         //Vertical Collision
@@ -338,8 +338,9 @@ Player.prototype = {
     draw: function (context, camera, frameCount) {
         context.drawImage(this.sprites.static, parseInt(this.x - camera.x), parseInt(this.y - camera.y), this.width, this.height);
         context.font = "38px Arial";
-        context.fillText(this.physicMode === 1 ? "125" : this.physicMode === 2 ? "250" : "333", 60, 60);
-        context.fillText(frameCount, 200, 60);
+        context.fillStyle = "lawngreen";
+        context.fillText("P.Behavior: " + this.physicMode, 50, 50);
+        context.fillText("Frame: " + frameCount, 350, 50);
     },
 
     savePosition: function (force = false) {

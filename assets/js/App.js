@@ -5,9 +5,6 @@
 var AppController = (function () {
 
     var developerMode = true;
-
-    console.log(UI);
-
     var game = new Game(
         60,
         new Map(),

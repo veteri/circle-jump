@@ -321,6 +321,10 @@ Map.prototype = {
         }
     },
 
+    getSpawn: function() {
+        return this.spawn;
+    },
+
     coordinateToTile: function (coord) {
 
 
@@ -383,13 +387,6 @@ Map.prototype = {
                 totalWidth,
                 totalHeight
             );
-            /*context.drawImage(
-                this.background[layer],
-                parseInt(0 - totalWidth - camera.x * speed),
-                parseInt(0 - camera.y * speed),
-                totalWidth,
-                totalHeight
-            );*/
             speed += slowScale;
         }
 
@@ -431,7 +428,6 @@ Map.prototype = {
         let canvas = UIController.canvas.get();
         this.cameraXOffset =  parseInt((canvas.width / this.tileHeight) / 2);
         this.cameraYOffset =  parseInt((canvas.width / this.tileHeight) / 2);
-
     },
 
     convertIntToLevelArray: function (intArr) {
