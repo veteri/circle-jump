@@ -52,7 +52,7 @@ function Map(author = null, name = null) {
         bounceEvent: null
     };
 
-    let canvas = UIController.canvas.get();
+    let canvas = UIController.gameCanvas.get();
     this.cameraXRenderOffset =  parseInt((canvas.width / this.tileHeight) / 2) + 4;
     this.cameraYRenderOffset =  parseInt((canvas.width / this.tileHeight) / 2) + 4;
 

@@ -70,7 +70,7 @@ function Game(fps, map, player) {
     /**
      * The HTML Canvas DOM Element
      */
-    this.canvas    = UIController.canvas.get();
+    this.canvas    = UIController.gameCanvas.get();
 
     /**
      * The 2d Rendering Context of the canvas.
@@ -355,7 +355,7 @@ Game.prototype = {
                 }
 
                 let percent = ((totalAssets - assetCount) / totalAssets) * 100;
-                UIController.progress.set(percent);
+                UIController.gameLoader.setProgress(percent);
             }
 
             self.performOnEveryAssetList(assets, function(assetList, requester, assetType, assetSubType) {
@@ -454,7 +454,11 @@ Game.prototype = {
         this.player.update2(delta, this.map);
 
         if (this.player.levelComplete) {
-            alert("You have finished the map in " + this.getPassedTime() + "s.");
+            //UI.gameCanvas.hide();
+            UI.menus.switchTo(UI.mapComplete, {
+                noBg: true,
+                hideGame: false
+            });
             this.stop("mapComplete");
         }
 
@@ -525,7 +529,7 @@ Game.prototype = {
          * As long as the delta time fits into our time step (1 / fps),
          * we call the update function.
          * Example: If it took the browser 0.5 seconds since the last gametick,
-         * it will update the game state 31 times (31 * (1/60) = 0.5),
+         * it will update the game state 30 times (30 * (1/60) = 0.5),
          * since this is what happened in that duration.
          */
         while (this.delta >= this.timestep) {

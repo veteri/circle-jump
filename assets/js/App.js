@@ -53,10 +53,10 @@ var AppController = (function () {
             if (mapName !== "none") {
 
                 //Hide all menus
-                UI.hideMenus();
+                UI.menus.hideAll();
 
                 //Show the game canvas
-                UI.showCanvas();
+                UI.gameCanvas.show();
 
                 //Load the map and once its loaded, start the game
                 game.loadMap(mapName)
@@ -85,7 +85,6 @@ var AppController = (function () {
             }, 1500);
 
         });
-
 
     };
 

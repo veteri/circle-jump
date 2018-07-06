@@ -21,7 +21,7 @@ Tile.prototype = {
      *
      * Do not use.
      */
-    context: UIController.canvas.getContext(),
+    context: UIController.gameCanvas.getContext(),
 
     COLOR: {
         "0": "#000",

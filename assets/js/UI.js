@@ -10,21 +10,60 @@ const UIController = UI = (function () {
         canvasHeight: 1080
     };
 
-    let canvas    = document.getElementById("canvas");
-    let context   = canvas.getContext("2d");
-    canvas.width  = config.canvasWidth;
-    canvas.height = config.canvasHeight;
+    let gameCanvas = {
 
-    let loaderDiv   = document.querySelector(".loading-info");
-    let progressDiv = document.querySelector(".progress");
-    let menuContainer = $(".game-menus");
+        canvas: document.getElementById("canvas"),
+        context: document.getElementById("canvas").getContext("2d"),
+
+        get: function() {
+            return this.canvas;
+        },
+        getContext: function() {
+            return this.context
+        },
+        getDimensions: function() {
+            return {
+                width : this.canvas.width,
+                height: this.canvas.height
+            }
+        },
+        show: function() {
+            $(this.canvas).show();
+        },
+        hide: function() {
+            $(this.canvas).hide();
+        },
+        reset: function() {
+            this.context.clearRect(0, 0, canvas.width, canvas.height);
+        },
+        init: function() {
+            this.canvas.width  = config.canvasWidth;
+            this.canvas.height = config.canvasHeight;
+        }
+    };
+
+    let gameLoader = {
+
+        container: $(".game .loading-info"),
+        progress: $(".loading-info .progress"),
+
+        show: function() {
+            this.container.show();
+        },
+        hide: function() {
+            this.container.fadeOut(300);
+        },
+        setProgress: function(percent) {
+            this.progress.css("width", percent + "%");
+        }
+    };
 
     let mainMenu = {
 
         container  : $(".main.menu"),
         play       : $(".main.menu div[data-button=play]"),
         leaderboard: $(".main.menu div[data-button=leaderboard]"),
-        settings   : $("main.menu div[data-button=settings]"),
+        settings   : $(".main.menu div[data-button=settings]"),
 
         show: function () {
             if (this.container.is(":hidden")) {
@@ -139,76 +178,74 @@ const UIController = UI = (function () {
 
     };
 
-    let hideMenus = function() {
-        menuContainer.hide();
-    };
+    let mapComplete = {
+        container  : $(".menu.map-complete"),
+        loader     : $(".menu.map-complete .submit-score"),
+        statistics : $(".menu.map-complete .statistics"),
+        mapLabel   : $(".menu.map-complete .statistics .map"),
+        timeLabel  : $(".menu.map-complete .statistics .time"),
+        rankingBody: $(".menu.map-complete .rankings .body"),
+        retry      : $(".menu.map-complete .button.retry"),
+        quit       : $(".menu.map-complete .button.quit"),
 
-    let getCanvas = function () {
-        return canvas;
-    };
+        show: function() {
+            this.statistics.hide();
+            this.loader.show();
+            this.container.fadeIn(300);
+        },
 
-    let showCanvas = function() {
-        $(canvas).show();
-    };
-
-    let getContext = function () {
-        return canvas.getContext("2d", {alpha: false});
-    };
-
-    let getCanvasDimensions = function () {
-        return {
-            width : canvas.width,
-            height: canvas.height
+        hide: function() {
+            this.container.fadeOut(300);
         }
     };
 
-    let resetCanvas = function () {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-    };
+    let menus = {
 
-    let showLoader = function () {
-        loaderDiv.classList.remove("hidden");
-    };
+        container: $(".game-menus"),
+        _menus: [mainMenu, mapChoice, leaderboard, mapComplete],
 
-    let hideLoader = function () {
-        loaderDiv.classList.add("hidden");
-    };
+        switchTo: function(menu, options) {
 
-    let setProgress = function (percent) {
-        progressDiv.style.width = percent + "%";
-    };
+            if (options.noBg) {
+                this.container.css("background", "none");
+            } else {
+                this.container.css("background", "url('/assets/images/menu/menu_bg.png')");
+            }
 
-    let setCanvasWidth = function (width) {
-        canvas.width = width;
-    };
+            this.container.show();
 
-    let setCanvasHeight = function (height) {
-        canvas.height = height;
-    };
+            if (options.hideGame) {
+                gameCanvas.hide();
+            }
 
+            this.hide();
+            menu.show();
+        },
+
+        hideAll: function() {
+            this.container.hide();
+            this.hide();
+        },
+
+        hide: function() {
+            this._menus.forEach(function(menu) {
+                menu.hide();
+            });
+        }
+    };
 
     return {
-        canvas: {
-            get          : getCanvas,
-            getContext   : getContext,
-            getDimensions: getCanvasDimensions,
-            reset        : resetCanvas
-        },
-        gameLoader: {
-            show: showLoader,
-            hide: hideLoader
-        },
 
-        progress: {
-            set: setProgress
-        },
+        //Game related
+        gameCanvas: gameCanvas,
+        gameLoader: gameLoader,
 
-        hideMenus: hideMenus,
-        showCanvas: showCanvas,
-
-        mainMenu: mainMenu,
-        mapChoice: mapChoice,
-        leaderboard: leaderboard
+        //Menu related
+        menus      : menus,
+        mainMenu   : mainMenu,
+        mapChoice  : mapChoice,
+        leaderboard: leaderboard,
+        mapComplete: mapComplete
     }
 
 

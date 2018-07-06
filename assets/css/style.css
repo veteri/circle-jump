@@ -70,6 +70,18 @@ canvas {
   }
 }
 
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0 50%
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -152,20 +164,20 @@ canvas {
   left: 0;
 }
 
+.game .loader {
+  width: 100%;
+  text-align: center;
+}
+
+.game .loader > .svg {
+  width: 300px;
+}
+
 .game > .loading-info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.game > .loading-info > .spinner {
-    width: 100%;
-    text-align: center;
-}
-
-.game > .loading-info > .spinner > .lds-bluecat {
-    width: 300px;
 }
 
 .game > .loading-info > .progress-bar {
@@ -192,6 +204,7 @@ canvas {
   height: 100%;
   background: url('/assets/images/menu/menu_bg.png');
   background-size: cover;
+  z-index: 2;
 }
 
 .game > .game-menus > .menu {
@@ -226,6 +239,12 @@ canvas {
   position: relative;
   width: 100%;
   padding: 20px;
+  background: rgba(0,0,0, 0.2);
+}
+
+.game > .game-menus > .menu .button > .label {
+  text-align: center;
+  color: #40dbf0;
 }
 
 .game > .game-menus > .menu .button:hover {
@@ -262,6 +281,48 @@ canvas {
   background: linear-gradient(to right, orangered, orange);
 }
 
+.game > .game-menus > .menu .rankings {
+  color: #e6e6e6;
+}
+
+.game > .game-menus > .menu .rankings .header {
+  padding: 10px;
+  background: #212529;
+  font-size: 2rem;
+  color: #e6e6e6;
+}
+
+.game > .game-menus > .menu .rankings .body {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.game > .game-menus > .menu .rankings .score {
+  padding: 10px;
+  background: rgba(0,0,0, 0.4);
+}
+
+.game > .game-menus > .menu .rankings .score.player-time {
+  background: linear-gradient(-45deg, #003018, #489030, #003018);
+  //background: linear-gradient(-45deg, transparent, #ef7f0c, transparent);
+  background-size: 200% 200%;
+  animation: Gradient 5s linear infinite;
+}
+
+.game > .game-menus > .menu .rankings .rank {
+  float: left;
+  width: 20%;
+}
+
+.game > .game-menus > .menu .rankings .name {
+  float: left;
+  width: 50%;
+}
+
+.game > .game-menus > .menu .rankings .time {
+  float: left;
+  width: 30%;
+}
 
 /**************************************\
 |*      Game main menu                 |
@@ -496,39 +557,56 @@ canvas {
   color: #4cbb17;
 }
 
-.game > .game-menus > .leaderboard.menu .rankings .body {
-  height: 250px;
-  overflow-y: scroll;
+/**************************************\
+|*      Map completion menu            |
+\**************************************/
+
+.game > .game-menus .map-complete.menu {
+  position: relative;
+  min-height: 600px;
 }
 
-.game > .game-menus > .leaderboard.menu .rankings .header {
-  padding: 10px;
-  background: #212529;
-  font-size: 2rem;
+.game > .game-menus .map-complete.menu .submit-score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
   color: #e6e6e6;
+  text-align: center;
 }
 
-.game > .game-menus > .leaderboard.menu .rankings .score {
-  padding: 10px;
-  background: rgba(0,0,0, 0.4);
+
+.game > .game-menus .map-complete.menu .statistics > .header {
+  background: linear-gradient(-45deg, #053752, #1894ac, #053752);
+  background-size: 200% 200%;
+  animation: Gradient 20s linear alternate infinite;
 }
 
-.game > .game-menus > .leaderboard.menu .rankings .rank {
+.game > .game-menus .map-complete.menu .statistics .map {
+  color: #4cbb17;
+}
+
+.game > .game-menus .map-complete.menu .statistics .subtitle .time {
+  color: yellow;
+}
+
+.game > .game-menus .map-complete.menu .statistics .rankings {
+  padding: 20px;
+}
+
+.game > .game-menus .map-complete.menu .controls {
+  padding: 20px;
+}
+
+.game > .game-menus .map-complete.menu .controls .button {
   float: left;
-  width: 20%;
+  width: 45%;
+  border-radius: 10px;
 }
 
-.game > .game-menus > .leaderboard.menu .rankings .name {
-  float: left;
-  width: 50%;
+.game > .game-menus .map-complete.menu .controls .button.quit {
+  margin-left: 10%;
 }
 
-.game > .game-menus > .leaderboard.menu .rankings .time {
-  float: left;
-  width: 30%;
-}
-
-.game > .game-menus > .leaderboard.menu .map-leaderboard thead th {
-  color: #f6f6f6;
-}
 
