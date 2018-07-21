@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+    <body>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-extended indigo darken-4 {% block nav_class %}{% endblock %} ">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">
+                        <img class="circlejump-logo" src="/assets/images/circlejump.png" alt="CircleJump">
+                    </a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+        <!-- END-NAVIGATION -->
+
+        <!-- BODY -->
+        {% block body %}
+        {% endblock %}
+        <!-- END-BODY -->
+
+        <script src="/assets/js/init.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    </body>
+</html>

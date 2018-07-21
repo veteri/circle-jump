@@ -61,6 +61,7 @@ var AppController = (function () {
                 //Load the map and once its loaded, start the game
                 game.loadMap(mapName)
                     .then(function() {
+                        console.log("init game");
                         game.init();
                     });
 

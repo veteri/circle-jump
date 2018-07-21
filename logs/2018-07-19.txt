@@ -1,0 +1,30 @@
+[19-Jul-2018 07:05:50 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Home/index.html.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Home/index.html...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Home/index.html...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Home/index.html...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Home/index.html...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Home/index.html...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Home.php(20): Core\View::renderTemplate('Home/index.html...', Array)
+#6 [internal function]: App\Controllers\Home->indexAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('index', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[19-Jul-2018 07:05:50 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[19-Jul-2018 07:05:50 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89

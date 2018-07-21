@@ -1,0 +1,136 @@
+[18-Jul-2018 23:26:19 Europe/Berlin] Uncaught exception: 'Exception'Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:27:20 Europe/Berlin] 
+Uncaught exception: 'Exception'Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:27:46 Europe/Berlin] 
+
+Uncaught exception: 'Exception'Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:28:45 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:32:45 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:32:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:32:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Method plauiAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('plaui', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/plaui')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:33:07 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Method testAction not found in controller App\Controllers\Game''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('test', Array)
+#1 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/test')
+#2 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Controller.php' on line 22
+[18-Jul-2018 23:33:11 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('yes')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[18-Jul-2018 23:34:36 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Game/pla.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Game/pla.html.t...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Game/pla.html.t...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Game/pla.html.t...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Game/pla.html.t...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Game/pla.html.t...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Game.php(14): Core\View::renderTemplate('Game/pla.html.t...', Array)
+#6 [internal function]: App\Controllers\Game->playAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('play', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/play')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[18-Jul-2018 23:34:43 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Game/pla.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Game/pla.html.t...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Game/pla.html.t...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Game/pla.html.t...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Game/pla.html.t...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Game/pla.html.t...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Game.php(14): Core\View::renderTemplate('Game/pla.html.t...', Array)
+#6 [internal function]: App\Controllers\Game->playAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('play', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/play')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[18-Jul-2018 23:43:12 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Game/pla.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Game/pla.html.t...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Game/pla.html.t...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Game/pla.html.t...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Game/pla.html.t...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Game/pla.html.t...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Game.php(14): Core\View::renderTemplate('Game/pla.html.t...', Array)
+#6 [internal function]: App\Controllers\Game->playAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('play', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/play')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[18-Jul-2018 23:44:17 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Game/pla.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Game/pla.html.t...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Game/pla.html.t...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Game/pla.html.t...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Game/pla.html.t...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Game/pla.html.t...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Game.php(14): Core\View::renderTemplate('Game/pla.html.t...', Array)
+#6 [internal function]: App\Controllers\Game->playAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('play', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('game/play')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[18-Jul-2018 23:45:51 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(48): Core\Router->dispatch('test')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89

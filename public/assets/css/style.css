@@ -5,10 +5,83 @@
     /*color: #333;*/
 }
 
+
 html {
   font-size: 16px;
 }
 
+nav {
+  padding: 10px;
+}
+
+/***************************
+Error Pages
+ **************************/
+
+.html-500-text {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+}
+
+/***************************
+Landing
+ **************************/
+
+nav .circlejump-logo {
+  height: 64px;
+}
+
+
+.slider {
+  position: relative;
+  text-shadow: 0 4px rgba(0,0,0,0.7);
+}
+
+.play {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  text-shadow: 0 2px rgba(0,0,0,0.4);
+}
+
+.play > .btn {
+  padding: 20px 40px;
+  height: auto;
+  font-size: 1.6rem;
+}
+
+.play > .btn > i {
+  font-size: 1.6rem;
+}
+
+.features p {
+  font-family: "Lato", sans-serif;
+}
+
+/***************************
+Login
+ **************************/
+
+.login {
+  margin: 0;
+  height: calc(100vh - 84px);
+  background: url("/assets/images/landing-slider/preview-01.png");
+  background-size: cover;
+}
+
+.login .card {
+  margin-top: 100px;
+}
+
+.login .form-field {
+  margin-bottom: 20px;
+}
+
+.login .remember-me {
+  font-family: "Lato", sans-serif;
+}
 
 button {
   display: block;
@@ -154,7 +227,8 @@ canvas {
 
 .game {
     position: relative;
-    height: 880px;
+    width: 100%;
+    height: 100vh;
     background: #000;
 }
 
@@ -162,6 +236,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
+  height: 100vh;
 }
 
 .game .loader {

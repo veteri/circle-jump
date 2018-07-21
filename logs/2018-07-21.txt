@@ -1,0 +1,608 @@
+[21-Jul-2018 07:01:34 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdfinb')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:02:02 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdfinb')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:02:09 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdfif')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:02:53 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdfif')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:03:02 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdfif')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:03:40 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdf')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:04:25 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdf')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:04:59 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdf')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:05:34 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdf')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:06:08 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(49): Core\Router->dispatch('sdf')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:17:23 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Home/login.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Home/login.html...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Home/login.html...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Home/login.html...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Home/login.html...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Home/login.html...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Home.php(21): Core\View::renderTemplate('Home/login.html...')
+#6 [internal function]: App\Controllers\Home->loginAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('login', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('login')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[21-Jul-2018 07:17:27 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Home/register.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Home/register.h...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Home/register.h...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Home/register.h...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Home/register.h...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Home/register.h...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Home.php(25): Core\View::renderTemplate('Home/register.h...')
+#6 [internal function]: App\Controllers\Home->registerAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('register', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('register')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[21-Jul-2018 07:33:32 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('aliceblue')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:32 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('as')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:32 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('ass')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:32 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('asse')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:32 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('asset')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:33 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Controller class 'App\Controllers\Assets' does not exist.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/aliceblu...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 86
+[21-Jul-2018 07:33:33 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Controller class 'App\Controllers\Assets' does not exist.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/indianre...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 86
+[21-Jul-2018 07:33:33 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Controller class 'App\Controllers\Assets' does not exist.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/im')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 86
+[21-Jul-2018 07:33:33 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Controller class 'App\Controllers\Assets' does not exist.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/ima')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 86
+[21-Jul-2018 07:33:34 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Controller class 'App\Controllers\Assets' does not exist.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/imag')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 86
+[21-Jul-2018 07:33:34 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'Controller class 'App\Controllers\Assets' does not exist.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/image')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 86
+[21-Jul-2018 07:33:34 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/a...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:38 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:40 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:40 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:40 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:40 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:41 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:41 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:41 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:41 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:42 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:42 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:42 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:42 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:42 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:52 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:53 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:53 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:54 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:55 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:55 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:56 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:56 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:56 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:56 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:56 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:57 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:33:57 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:03 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:07 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:08 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:09 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:10 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:13 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:34:17 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/images/l...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:38:39 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/css/asse...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:39:12 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/css/asse...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 07:39:43 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('assets/css/asse...')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 08:08:52 Europe/Berlin] 
+
+Uncaught exception: 'Twig_Error_Loader'
+Message: 'Unable to find template "Home/register.html.twig" (looked into: C:\Users\Midi\Documents\circlejump/App/Views).''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('Home/register.h...')
+#1 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('Home/register.h...')
+#2 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('Home/register.h...')
+#3 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Environment.php(289): Twig_Environment->loadTemplate('Home/register.h...')
+#4 C:\Users\Midi\Documents\circlejump\Core\View.php(26): Twig_Environment->render('Home/register.h...', Array)
+#5 C:\Users\Midi\Documents\circlejump\App\Controllers\Home.php(25): Core\View::renderTemplate('Home/register.h...')
+#6 [internal function]: App\Controllers\Home->registerAction()
+#7 C:\Users\Midi\Documents\circlejump\Core\Controller.php(18): call_user_func_array(Array, Array)
+#8 C:\Users\Midi\Documents\circlejump\Core\Router.php(81): Core\Controller->__call('register', Array)
+#9 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('register')
+#10 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226

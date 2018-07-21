@@ -19,7 +19,7 @@
                  $this->after();
              }
          } else {
-             echo "Method $method not found in controller " . get_class($this);
+             throw new \Exception("Method $method not found in controller " . get_class($this));
          }
      }
 

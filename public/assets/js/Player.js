@@ -53,7 +53,7 @@ Player.prototype = {
 
     assets: {
         sprites: {
-            static: ["assets/images/player/static-cat-test.png"],
+            static: ["/assets/images/player/static-cat-test.png"],
             running: [
 
             ]

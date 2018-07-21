@@ -1,11 +1,18 @@
 <?php
 
 namespace App\Controllers;
+use Core\View;
+use App\Models\Map;
 
-class Game {
+class Game extends \Core\Controller {
 
     public function playAction() {
-        echo "Game controller play method";
+
+        $maps = Map::getAll();
+
+        View::renderTemplate("Game/play", [
+            "maps" => $maps
+        ]);
     }
 
     public function submitScoreAction() {

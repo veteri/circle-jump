@@ -6,20 +6,23 @@ use Core\View;
 class Home extends \Core\Controller {
 
     protected function before() {
+
     }
 
     protected function after() {
+
     }
 
     public function indexAction() {
-        View::render("Home/index.php", [
-            "maps" => ["galaxy", "palm", "mystic"]
-        ]);
+        View::renderTemplate("Home/index");
     }
 
-    public function editAction() {
-
-        echo "Edit";
-        var_dump($this->route_params);
+    public function loginAction() {
+        View::renderTemplate("Home/login");
     }
+
+    public function registerAction() {
+        View::renderTemplate("Home/register");
+    }
+
 }

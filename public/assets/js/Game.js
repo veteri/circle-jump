@@ -11,11 +11,12 @@ function Game(fps, map, player) {
      */
     this.state = this.states.menu;
 
+    this.baseURL = "cj.localhost/";
+
     /**
      * The fps at which the game will base its physics on.
      */
     this.fps       = fps;
-
 
     /**
      * The amount of frames the game has displayed so far.
@@ -33,6 +34,10 @@ function Game(fps, map, player) {
      */
     this.timePassed = 0;
 
+    /**
+     * ???
+     * @type {number}
+     */
     this.timePassedOffset = 0;
 
     /**
@@ -198,7 +203,7 @@ Game.prototype = {
         });
 
         //@Debug Starts the game
-        document.querySelector(".start").addEventListener("click", function (event) {
+       /* document.querySelector(".start").addEventListener("click", function (event) {
             self.start();
         });
 
@@ -206,19 +211,19 @@ Game.prototype = {
         document.querySelector(".stop").addEventListener("click", function (event) {
             self.stop("pause");
             self.map.dump();
-        });
+        });*/
 
         //@Debug Toggles the rendering mode for tiles. (Simple Rect's <-> Textures)
-        document.querySelector(".toggleMode").addEventListener("click", function(event) {
+        /*document.querySelector(".toggleMode").addEventListener("click", function(event) {
             Tile.prototype.simpleMode = !Tile.prototype.simpleMode;
-        });
+        });*/
 
         //@Debug Toggles the visualization of the players collision mechanics.
-        document.querySelector(".visualizeCol").addEventListener("click", function(event) {
+        /*document.querySelector(".visualizeCol").addEventListener("click", function(event) {
             Player.prototype.SHOW_COLLISION = !Player.prototype.SHOW_COLLISION;
-        });
+        });*/
 
-        document.querySelector("#backgroundKey").addEventListener("change", function(event) {
+        /*document.querySelector("#backgroundKey").addEventListener("change", function(event) {
             self.stop("changeBg");
             let bgKey = this.value;
             if (!self.map.backgrounds.hasOwnProperty(bgKey)) {
@@ -227,35 +232,35 @@ Game.prototype = {
             self.map.background = self.map.backgrounds[bgKey];
             self.canvas.click();
             self.start();
-        });
+        });*/
 
         //@Debug Loads a json file based map.
-        document.querySelector(".load-map").addEventListener("click", function(event) {
+        /*document.querySelector(".load-map").addEventListener("click", function(event) {
 
             alert("This feature is disabled due to a lack of maps.");
 
-            /*let mapName = document.querySelector(".map-name").value;
+            /!*let mapName = document.querySelector(".map-name").value;
 
             self.loadMap(mapName).then(function() {
                 self.start();
             }).catch(function() {
                 alert("Loading of '" + mapName + "' has failed.");
-            });*/
-        });
+            });*!/
+        });*/
 
 
-        let bgList = document.querySelector("#backgroundKey");
+        /*let bgList = document.querySelector("#backgroundKey");
 
-        /**
+        /!**
          * Adds an option to the background select for each
          * key in this.map.backgrounds
-         */
+         *!/
         for (let background in this.map.backgrounds) {
             if (this.map.backgrounds.hasOwnProperty(background)) {
                 let lable = background.split(/(?=[A-Z])/).join(" ");
                 bgList.innerHTML += `<option value="${background}">${lable}</option>`
             }
-        }
+        }*/
 
 
     },
@@ -323,8 +328,12 @@ Game.prototype = {
     loadAssets: function() {
 
         let self = this;
+        console.log("loadAssets");
 
         return new Promise(function(resolve, reject) {
+
+            console.log("loadAssets");
+
 
             UIController.gameLoader.show();
 
@@ -365,7 +374,7 @@ Game.prototype = {
                     let img = new Image();
                     img.addEventListener("load", onImageLoad);
                     img.src = assetPath;
-
+                    console.log("Loading: " + assetPath);
 
                     let target = requester.charAt(0) === requester.charAt(0).toUpperCase() ?
                                 window[requester].prototype[assetType]

@@ -34,23 +34,23 @@ Tile.prototype = {
 
     assets: {
         sprites: {
-            1: ["assets/images/tiles/connect_topgrass.png"],
-            2: ["assets/images/tiles/lo_topgrass.png"],
-            3: ["assets/images/tiles/ro_topgrass.png"],
-            4: ["assets/images/tiles/connect_dirt.png"],
-            5: ["assets/images/tiles/lo_dirt.png"],
-            6: ["assets/images/tiles/ro_dirt.png"],
-            7: ["assets/images/tiles/lb_dirt.png"],
-            8: ["assets/images/tiles/rb_dirt.png"],
-            9: ["assets/images/tiles/bot_connect_dirt.png"],
-            10: ["assets/images/tiles/left_connect_dirt.png"],
-            11: ["assets/images/tiles/right_connect_dirt.png"],
-            12: ["assets/images/tiles/left_connect_grass.png"],
-            13: ["assets/images/tiles/right_connect_grass.png"],
-            14: ["assets/images/tiles/left_island.png"],
-            15: ["assets/images/tiles/middle_island.png"],
-            16: ["assets/images/tiles/right_island.png"],
-            43: ["assets/images/tiles/finish_flag.png"]
+            1: ["/assets/images/tiles/connect_topgrass.png"],
+            2: ["/assets/images/tiles/lo_topgrass.png"],
+            3: ["/assets/images/tiles/ro_topgrass.png"],
+            4: ["/assets/images/tiles/connect_dirt.png"],
+            5: ["/assets/images/tiles/lo_dirt.png"],
+            6: ["/assets/images/tiles/ro_dirt.png"],
+            7: ["/assets/images/tiles/lb_dirt.png"],
+            8: ["/assets/images/tiles/rb_dirt.png"],
+            9: ["/assets/images/tiles/bot_connect_dirt.png"],
+            10: ["/assets/images/tiles/left_connect_dirt.png"],
+            11: ["/assets/images/tiles/right_connect_dirt.png"],
+            12: ["/assets/images/tiles/left_connect_grass.png"],
+            13: ["/assets/images/tiles/right_connect_grass.png"],
+            14: ["/assets/images/tiles/left_island.png"],
+            15: ["/assets/images/tiles/middle_island.png"],
+            16: ["/assets/images/tiles/right_island.png"],
+            43: ["/assets/images/tiles/finish_flag.png"]
         }
     },
 
