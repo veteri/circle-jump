@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Controllers;
-use Core\View;
-use App\Models\Map;
+use \Core\View;
+use \App\Models\Map;
 
-class Game extends \Core\Controller {
+class Game extends Authenticated {
 
     public function playAction() {
 
-        $maps = Map::getAll();
+        $maps = Map::getAllSimple();
 
         View::renderTemplate("Game/play", [
             "maps" => $maps

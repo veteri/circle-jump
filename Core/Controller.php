@@ -2,6 +2,9 @@
 
  namespace Core;
 
+ use \App\Auth;
+ use \App\Flash;
+
  abstract class Controller {
      protected $route_params = [];
 
@@ -29,6 +32,33 @@
 
      protected function after() {
 
+     }
+
+     protected function respondWithJson($json) {
+         header("Content-Type: application/json");
+         echo $json;
+     }
+
+     /**
+      * Redirect to a relative url.
+      * @param $url string The relative path
+      * @return void
+      */
+     public function redirect($url) {
+         header("Location: http://" . $_SERVER["HTTP_HOST"] . $url, true, 303);
+         exit;
+     }
+
+     public function requireLogin() {
+
+         if (!Auth::getUser()) {
+
+             Flash::addMessage("requiresLogin","Please login to access that content.",Flash::INFO);
+
+             Auth::rememberRequestedRoute();
+
+             $this->redirect("/login");
+         }
      }
 
  }

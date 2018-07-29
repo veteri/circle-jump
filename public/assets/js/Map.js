@@ -459,13 +459,13 @@ Map.prototype = {
         this.activeLevel = 0;
     },
 
-    importByName: function (name) {
+    loadById: function (id) {
 
         let self = this;
 
         return new Promise(function (resolve, reject) {
 
-            if (name === "") {
+            if (id === "") {
                 reject("Map name missing");
             }
 
@@ -477,8 +477,10 @@ Map.prototype = {
 
                     if (this.status === 200) {
                         let response = JSON.parse(this.responseText);
+
                         let meta     = response.meta;
 
+                        self.id      = meta.id;
                         self.author  = meta.author;
                         self.name    = meta.name;
                         self.spawn   = meta.spawn;
@@ -497,14 +499,20 @@ Map.prototype = {
                             self.util.logMessage("import_success", {name: name});
                         }
 
+                        console.log(self);
+                        //reject(id);
+
                         resolve();
+
                     } else {
-                        reject(name);
+
+                        reject(id);
+
                     }
                 }
             });
 
-            xhr.open("GET", "/assets/maps/" + name + ".json?" + new Date().getTime(), true);
+            xhr.open("GET", "/map/get?id=" + id, true);
             xhr.send();
 
         });

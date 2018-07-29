@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use Core\View;
+use \Core\View;
 
 class Home extends \Core\Controller {
 
@@ -17,12 +17,5 @@ class Home extends \Core\Controller {
         View::renderTemplate("Home/index");
     }
 
-    public function loginAction() {
-        View::renderTemplate("Home/login");
-    }
-
-    public function registerAction() {
-        View::renderTemplate("Home/register");
-    }
 
 }

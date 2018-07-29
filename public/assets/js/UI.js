@@ -10,6 +10,35 @@ const UIController = UI = (function () {
         canvasHeight: 1080
     };
 
+    let timeUtil = {
+
+        fromMs: function(ms) {
+
+            let hours,
+                minutes,
+                seconds,
+                miliseconds,
+                timeString = "";
+
+            hours       =    parseInt(ms / 3600000);
+            minutes     =   parseInt((ms % 3600000) / 60000);
+            seconds     =  parseInt(((ms % 3600000) % 60000) / 1000);
+            miliseconds = parseInt((((ms % 3600000) % 60000) % 1000));
+
+            hours       = String(hours).padStart(2, "0");
+            minutes     = String(minutes).padStart(2, "0");
+            seconds     = String(seconds).padStart(2, "0");
+            miliseconds = String(miliseconds).padStart(3, "0");
+
+            timeString += parseInt(hours) ? `${hours}:`      : "";
+            timeString += minutes         ? `${minutes}:`    : "";
+            timeString += seconds         ? `${seconds}.`    : "";
+            timeString += miliseconds     ? `${miliseconds}` : "";
+
+            return timeString;
+        },
+    };
+
     let gameCanvas = {
 
         canvas: document.getElementById("canvas"),
@@ -45,7 +74,7 @@ const UIController = UI = (function () {
     let gameLoader = {
 
         container: $(".game .loading-info"),
-        progress: $(".loading-info .progress"),
+        progress: $(".loading-info .progress > .determinate"),
 
         show: function() {
             this.container.show();
@@ -97,7 +126,8 @@ const UIController = UI = (function () {
 
         select: function(map) {
             map.addClass("selected");
-            this.pick.text(map.attr("data-map"));
+            this.pick.text(map.attr("data-name"));
+            this.pick.attr("data-selected", map.attr("data-id"));
         },
 
         deselect: function() {
@@ -115,7 +145,7 @@ const UIController = UI = (function () {
         },
 
         getMap: function() {
-            return this.pick.text();
+            return this.pick.attr("data-selected");
         }
 
     };
@@ -156,7 +186,7 @@ const UIController = UI = (function () {
 
         select: function(map) {
             map.addClass("selected");
-            this.mapLabel.text(map.attr("data-map"));
+            this.mapLabel.text(map.data("name"));
             this.notice.hide();
         },
 
@@ -183,7 +213,9 @@ const UIController = UI = (function () {
         loader     : $(".menu.map-complete .submit-score"),
         statistics : $(".menu.map-complete .statistics"),
         mapLabel   : $(".menu.map-complete .statistics .map"),
-        timeLabel  : $(".menu.map-complete .statistics .time"),
+        timeLabel  : $(".menu.map-complete .statistics span.time"),
+        timeRating : $(".menu.map-complete .statistics span.time-rating"),
+        worldRecord: $(".menu.map-complete .statistics span.world-record"),
         rankingBody: $(".menu.map-complete .rankings .body"),
         retry      : $(".menu.map-complete .button.retry"),
         quit       : $(".menu.map-complete .button.quit"),
@@ -192,6 +224,75 @@ const UIController = UI = (function () {
             this.statistics.hide();
             this.loader.show();
             this.container.fadeIn(300);
+        },
+
+        showStats: function() {
+            this.loader.fadeOut(300);
+            this.statistics.fadeIn(300);
+        },
+
+        buildRankings: function(rankings, map, time) {
+
+
+            /**
+             * Build the ranking table for the passed
+             * ranking array.
+             */
+            let html = "";
+
+            rankings.forEach(function(ranking, index) {
+                html += `
+                     <div class="score ${ranking.player ? "player-time" : ""} clearfix">
+                        <div class="rank">${index + 1}</div>
+                        <div class="name">${ranking.name}</div>
+                        <div class="time">${timeUtil.fromMs(ranking.time)}</div>
+                    </div>
+                `;
+            });
+
+            //Table
+            this.rankingBody.html(html);
+
+            //Map name
+            this.mapLabel.text(map);
+
+            //Player time
+            this.timeLabel.text(timeUtil.fromMs(time));
+
+
+            /**
+             * Display personal best notification
+             * or show how much slower the run was
+             * compared to an earlier run the player
+             * has performed.
+             */
+
+            //Get the players ranking
+            let playerRanking = rankings.filter(ranking => ranking.player)[0];
+
+            //Check if player time is a record
+            let isWorldRecord = time === parseInt(rankings[0].time);
+
+            //Reset timeRating (no regress nor personal best)
+            this.timeRating.attr("class", "time-rating");
+
+            if (isWorldRecord) {
+
+                this.timeRating.addClass("world-record");
+                this.timeRating.text("World record!");
+
+            } else if (time === parseInt(playerRanking.time)) {
+
+                this.timeRating.addClass("personal-best");
+                this.timeRating.text("Personal best!");
+
+            } else {
+
+                this.timeRating.addClass("regress");
+                this.timeRating.text("+" + timeUtil.fromMs(time - playerRanking.time));
+
+            }
+
         },
 
         hide: function() {
@@ -235,6 +336,8 @@ const UIController = UI = (function () {
     };
 
     return {
+
+        timeUtil  : timeUtil,
 
         //Game related
         gameCanvas: gameCanvas,

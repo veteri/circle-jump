@@ -396,11 +396,10 @@ Game.prototype = {
     },
 
     getPassedTime: function() {
-        return this.timePassed - this.timePassedOffset;
+        return (this.timePassed - this.timePassedOffset).toFixed(3) * 1000;
     },
 
-    retry: function() {
-        this.stop("resetMap");
+    reset: function() {
         this.frameCount = 0;
         this.delta = 0;
         this.timePassedOffset = this.timePassed;
@@ -408,6 +407,11 @@ Game.prototype = {
             this.map.spawn[0],
             this.map.spawn[1]
         );
+    },
+
+    retry: function() {
+        this.stop("resetMap");
+        this.reset();
         this.start();
     },
 
@@ -415,26 +419,80 @@ Game.prototype = {
      * Loads a map from a json file
      * into the game's map object.
      *
-     * @param name
+     * @param id
      * @returns {Promise}
      */
-    loadMap: function(name) {
+    loadMap: function(id) {
         let self = this;
         return new Promise(function(resolve, reject) {
             self.stop("loadMap");
-            self.map.importByName(name).then(function() {
-                self.player.setPosition(
-                    self.map.spawn[0],
-                    self.map.spawn[1]
-                );
+            self.map.loadById(id).then(function() {
+                self.reset();
                 self.player.savePosition(true);
                 self.camera.cacheMapSize(self.map);
                 resolve();
             }).catch(function(result) {
-                alert("The map with the name '" + result + "' does not exist.");
+                alert("The map with the id '" + result + "' does not exist.");
                 self.start();
             });
         });
+    },
+
+    /**
+     * Once the player finished a level,
+     * submit the time he needed to server.
+     *
+     * @returns {Promise}
+     */
+    submitTime: function() {
+        let self = this;
+
+        return new Promise(function(resolve, reject) {
+
+            let xhr = new XMLHttpRequest();
+
+            let time = self.getPassedTime();
+            let requestBody = "time=" + time;
+
+            xhr.addEventListener("readystatechange", function() {
+                if (this.readyState === 4) {
+
+                    if (this.status === 200) {
+
+                        let response = JSON.parse(this.responseText);
+
+                        resolve({
+                            rankings: response,
+                            time: time
+                        });
+
+                    } else {
+                        reject();
+                    }
+
+                    console.log(this.responseText);
+                }
+            });
+
+            xhr.open("POST", "/map/submit-time", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(requestBody);
+
+        });
+    },
+
+    drawOverlays: function() {
+
+        this.context.font = "28px Luckiest Guy";
+        this.context.fillStyle = "rgba(0,0,0,0.7)";
+        this.context.fillRect(20, 20, 200, 50);
+        this.context.fillStyle = "#64dd17";
+        this.context.fillText(UI.timeUtil.fromMs(this.getPassedTime()) , 50, 55);
+
+        this.context.fillStyle = "rgba(0,0,0,0.7)";
+        this.context.fillRect(240, 20, 150, 50);
+        this.context.fillStyle = "#64dd17";
+        this.context.fillText("Mode: " + this.player.physicMode, 270, 55);
     },
 
     /**
@@ -450,7 +508,8 @@ Game.prototype = {
             this.player.drawCollision(this.map, this.camera);
         }
 
-        this.context.fillText("Time: " + this.getPassedTime().toFixed(3) , 650, 50);
+        this.drawOverlays();
+
         //this.camera.draw(this.context);
     },
 
@@ -460,15 +519,30 @@ Game.prototype = {
      */
     update: function (delta) {
 
+        let self = this;
+
         this.player.update2(delta, this.map);
 
         if (this.player.levelComplete) {
-            //UI.gameCanvas.hide();
+
+            this.stop("mapComplete");
+
             UI.menus.switchTo(UI.mapComplete, {
                 noBg: true,
                 hideGame: false
             });
-            this.stop("mapComplete");
+
+            this.submitTime()
+                .then(function(response) {
+
+                    UI.mapComplete.buildRankings(
+                        response.rankings,
+                        self.map.name,
+                        response.time
+                    );
+
+                    UI.mapComplete.showStats();
+                });
         }
 
         this.camera.update(this.player);

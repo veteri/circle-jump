@@ -22,9 +22,22 @@
         });
     };
 
+    const addValidatorMethods = function() {
+        $.validator.addMethod("validPassword",
+            function(value, element, param) {
+                return value !== ""
+                    && value.match(/.*[a-z]+.*/i) !== null
+                    && value.match(/.*\d.*/i) !== null;
+            },
+            "Must contain at least one letter & one number"
+        );
+    };
+
     document.addEventListener('DOMContentLoaded', function() {
         initMaterializeCSS();
+        addValidatorMethods();
     });
+
 
 })();
 

@@ -337,10 +337,6 @@ Player.prototype = {
 
     draw: function (context, camera, frameCount) {
         context.drawImage(this.sprites.static, parseInt(this.x - camera.x), parseInt(this.y - camera.y), this.width, this.height);
-        context.font = "38px Arial";
-        context.fillStyle = "lawngreen";
-        context.fillText("P.Behavior: " + this.physicMode, 50, 50);
-        context.fillText("Frame: " + frameCount, 350, 50);
     },
 
     savePosition: function (force = false) {

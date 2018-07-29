@@ -8,7 +8,7 @@
 
 namespace Core;
 
-use App\Config;
+use \App\Config;
 
 class Error {
     public static function errorHandler($level, $message, $file, $line) {

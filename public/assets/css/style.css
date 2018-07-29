@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Luckiest Guy", sans-serif;
+    //font-family: "Lato", sans-serif;
     letter-spacing: 2px;
     /*color: #333;*/
 }
@@ -12,6 +12,31 @@ html {
 
 nav {
   padding: 10px;
+}
+
+/***************************
+Flash Messages
+ **************************/
+
+.alert {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #4caf50;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
 }
 
 /***************************
@@ -27,14 +52,29 @@ Error Pages
 Landing
  **************************/
 
+nav {
+  font-family: "Luckiest Guy", sans-serif;
+}
+
 nav .circlejump-logo {
   height: 64px;
 }
 
-
 .slider {
   position: relative;
   text-shadow: 0 4px rgba(0,0,0,0.7);
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+.slider .alert {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 3;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  text-shadow: none;
 }
 
 .play {
@@ -42,7 +82,7 @@ nav .circlejump-logo {
   bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 2;
   text-shadow: 0 2px rgba(0,0,0,0.4);
 }
 
@@ -60,30 +100,93 @@ nav .circlejump-logo {
   font-family: "Lato", sans-serif;
 }
 
-/***************************
-Login
- **************************/
-
-.login {
-  margin: 0;
-  height: calc(100vh - 84px);
-  background: url("/assets/images/landing-slider/preview-01.png");
-  background-size: cover;
+.sidenav-overlay {
+  z-index: 3;
 }
 
-.login .card {
+.sidenav {
+  z-index: 4;
+}
+
+/********************************
+Login & Sign up & Forgot password
+ *******************************/
+
+
+.login .card,
+.signup .card,
+.forgot-password .card {
   margin-top: 100px;
 }
 
-.login .form-field {
-  margin-bottom: 20px;
+.login .card-action,
+.signup .card-action,
+.forgot-password .card-action {
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+.login .input-field,
+.signup .input-field,
+.forgot-password .input-field {
+  margin-top: 1.5rem;
 }
 
 .login .remember-me {
   font-family: "Lato", sans-serif;
 }
 
-button {
+.login button[type="submit"],
+.signup button[type="submit"],
+.forgot-password button[type="submit"] {
+  width: 100%;
+}
+
+/***************************
+Sign up
+ **************************/
+
+.signup .input-field div.error {
+  position: relative;
+  left: 3rem;
+  font-size: 0.8rem;
+  color: #FF4081;
+}
+
+.error.card-panel {
+  color: #fff;
+}
+
+.error.card-panel > ul > li {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+.error.card-panel > .header {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: "Lato", sans-serif;
+}
+
+.signup-success {
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+/***************************
+ Policy
+ **************************/
+
+.privacy,
+.tos {
+  margin-top: 50px;
+}
+
+.privacy .card-action,
+.tos .card-action {
+  font-family: "Luckiest Guy", sans-serif;
+  text-shadow: 0 8px rgba(0,0,0,0.7);
+}
+
+/*button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -92,7 +195,7 @@ button {
   color: #fff;
   cursor: pointer;
   margin-bottom: 10px;
-}
+}*/
 
 input {
   width: 100%;
@@ -140,6 +243,16 @@ canvas {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
   }
 }
 
@@ -228,6 +341,7 @@ canvas {
 .game {
     position: relative;
     width: 100%;
+    min-width: 1200px;
     height: 100vh;
     background: #000;
 }
@@ -255,7 +369,7 @@ canvas {
     transform: translate(-50%, -50%);
 }
 
-.game > .loading-info > .progress-bar {
+/*.game > .loading-info > .progress-bar {
     margin-top: 50px;
     width: 600px;
     height: 30px;
@@ -266,6 +380,20 @@ canvas {
     height: 100%;
     background-color: dodgerblue;
     width: 0;
+}*/
+
+.game > .loading-info > .progress {
+  margin-top: 50px;
+  width: 600px;
+  height: 30px;
+  border: 3px solid #fff;
+  background: none;
+}
+
+.game > .loading-info > .progress > .determinate {
+  height: 100%;
+  background-color: dodgerblue;
+  width: 0;
 }
 
 /**************************************\
@@ -365,6 +493,8 @@ canvas {
   background: #212529;
   font-size: 2rem;
   color: #e6e6e6;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .game > .game-menus > .menu .rankings .body {
@@ -653,6 +783,7 @@ canvas {
 
 
 .game > .game-menus .map-complete.menu .statistics > .header {
+  position: relative;
   background: linear-gradient(-45deg, #053752, #1894ac, #053752);
   background-size: 200% 200%;
   animation: Gradient 20s linear alternate infinite;
@@ -665,6 +796,51 @@ canvas {
 .game > .game-menus .map-complete.menu .statistics .subtitle .time {
   color: yellow;
 }
+
+.game > .game-menus .map-complete.menu .statistics .subtitle .time-rating {
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.game > .game-menus .map-complete.menu .statistics .subtitle .time-rating.regress {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e53935+0,be1c18+100 */
+  background: #e53935; /* Old browsers */
+  background: -moz-linear-gradient(top, #e53935 0%, #be1c18 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #e53935 0%,#be1c18 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #e53935 0%,#be1c18 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e53935', endColorstr='#be1c18',GradientType=0 ); /* IE6-9 */
+}
+
+.game > .game-menus .map-complete.menu .statistics .subtitle .time-rating.personal-best,
+.game > .game-menus .map-complete.menu .statistics .subtitle .time-rating.world-record {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  animation: pulse 1s linear alternate infinite;
+}
+
+.game > .game-menus .map-complete.menu .statistics .subtitle .time-rating.personal-best {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#64dd17+0,489f11+100 */
+  background: #64dd17; /* Old browsers */
+  background: -moz-linear-gradient(top, #64dd17 0%, #489f11 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #64dd17 0%,#489f11 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #64dd17 0%,#489f11 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64dd17', endColorstr='#489f11',GradientType=0 ); /* IE6-9 */
+}
+
+.game > .game-menus .map-complete.menu .statistics .subtitle .time-rating.world-record {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffd700+0,bb9e00+100 */
+  background: #ffd700; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffd700 0%, #bb9e00 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffd700 0%,#bb9e00 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffd700 0%,#bb9e00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd700', endColorstr='#bb9e00',GradientType=0 ); /* IE6-9 */
+}
+
+
 
 .game > .game-menus .map-complete.menu .statistics .rankings {
   padding: 20px;

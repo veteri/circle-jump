@@ -9,7 +9,7 @@
 namespace Core;
 
 use PDO;
-use App\Config;
+use \App\Config;
 
 abstract class Model {
 

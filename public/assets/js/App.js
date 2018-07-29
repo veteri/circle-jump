@@ -15,7 +15,6 @@ var AppController = (function () {
 
         //alert("Make sure your browser has hardware acceleration turned on.");
 
-
         //If we click on the play button in the main menu
         UI.mainMenu.play.on("click", function() {
             //Hide the main menu
@@ -85,6 +84,18 @@ var AppController = (function () {
                 UI.leaderboard.showMapScore();
             }, 1500);
 
+        });
+
+        UI.mapComplete.retry.on("click", function() {
+            UI.mapComplete.hide();
+            game.retry();
+        });
+
+        UI.mapComplete.quit.on("click", function() {
+           UI.menus.switchTo(UI.mainMenu, {
+               noBg: false,
+               hideGame: true
+           });
         });
 
     };

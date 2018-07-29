@@ -13,6 +13,7 @@ node_modules/
 .tmp/
 /.idea
 /vendor
+/logs
 
 
 # OS or Editor folders

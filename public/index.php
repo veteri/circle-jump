@@ -33,6 +33,12 @@ set_exception_handler("Core\Error::exceptionHandler");
 
 
 /**
+ * Start or resume sessions
+ */
+
+session_start();
+
+/**
  * Routing
  */
 
@@ -40,9 +46,17 @@ $router = new Core\Router();
 
 //Adding routes
 $router->add("", ["controller" => "Home", "action" => "index"]);
-$router->add("register", ["controller" => "Home", "action" => "register"]);
-$router->add("login", ["controller" => "Home", "action" => "login"]);
+
+$router->add("signup", ["controller" => "Signup", "action" => "new"]);
+$router->add("login", ["controller" => "Login", "action" => "new"]);
+$router->add("logout", ["controller" => "Login", "action" => "destroy"]);
+$router->add("password/reset/{token:[\da-f]+}", ["controller" => "Password", "action" => "reset"]);
+$router->add("signup/activate/{token:[\da-f]+}", ["controller" => "Signup", "action" => "activate"]);
+
 $router->add("play", ["controller" => "Game", "action" => "play"]);
+
+$router->add("privacy-policy", ["controller" => "Signup", "action" => "info"]);
+$router->add("terms-of-use", ["controller" => "Signup", "action" => "info2"]);
 
 $router->add("{controller}/{action}");
 $router->add("{controller}/{action}/{id:\d+}");

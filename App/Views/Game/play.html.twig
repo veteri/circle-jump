@@ -74,8 +74,11 @@
                         </g>
                     </svg >
                 </div>
-                <div class="progress-bar">
+                {#<div class="progress-bar">
                     <div class="progress"></div>
+                </div>#}
+                <div class="progress">
+                    <div class="determinate"></div>
                 </div>
             </div>
             <div class="game-menus">
@@ -102,19 +105,9 @@
                         Selected: <span class="map" data-selected="">none</span>
                     </div>
                     <div class="list">
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
-                        <div class="item map" data-map="tutorial">Tutorial</div>
+                        {% for map in maps %}
+                            <div class="item map" data-id="{{ map.id }}" data-name="{{ map.name }}">{{ map.name }}</div>
+                        {% endfor %}
                     </div>
                     <div class="notice invisible">
                         Please select a map.
@@ -132,31 +125,9 @@
                         <div class="maps">
                             <div class="subtitle">Maps</div>
                             <div class="list">
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
-                                <div class="item map" data-map="tutorial">Tutorial</div>
+                                {% for map in maps %}
+                                    <div class="item map" data-map="{{ map.name }}">{{ map.name }}</div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="map-leaderboard">
@@ -196,36 +167,7 @@
                                         <div class="name">name1</div>
                                         <div class="time">02:25.241</div>
                                     </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">2</div>
-                                        <div class="name">name2</div>
-                                        <div class="time">02:27.523</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">3</div>
-                                        <div class="name">name3</div>
-                                        <div class="time">02:28.778</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">4</div>
-                                        <div class="name">bla</div>
-                                        <div class="time">02:28.778</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">5</div>
-                                        <div class="name">yes</div>
-                                        <div class="time">02:28.778</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">6</div>
-                                        <div class="name">no</div>
-                                        <div class="time">02:28.778</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">7</div>
-                                        <div class="name">maybe</div>
-                                        <div class="time">02:28.778</div>
-                                    </div>
+
                                 </div>
 
                             </div> <!-- rankings -->
@@ -358,8 +300,11 @@
                     <div class="statistics">
                         <div class="header">
                             <div class="title">Good job!</div>
-                            <div class="subtitle">You finished <span class="map">Tutorial</span></div>
-                            <div class="subtitle">Your time: <span class="time">04:02.225</span></div>
+                            <div class="subtitle">You finished <span class="map">-</span></div>
+                            <div class="subtitle">
+                                Your time: <span class="time">-</span>
+                                <span class="time-rating">-</span>
+                            </div>
                         </div>
                         <div class="body">
                             <div class="rankings">
@@ -369,41 +314,20 @@
                                     <div class="time">Time</div>
                                 </div>
                                 <div class="body">
-                                    <div class="score clearfix">
+                                    {#<div class="score clearfix">
                                         <div class="rank">1</div>
                                         <div class="name">cat225</div>
                                         <div class="time">02:05.266</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">2</div>
-                                        <div class="name">tyyr</div>
-                                        <div class="time">02:07.734</div>
-                                    </div>
-                                    <div class="score clearfix player-time">
-                                        <div class="rank">3</div>
-                                        <div class="name">midi</div>
-                                        <div class="time">02:08.643</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">4</div>
-                                        <div class="name">speedrun tryhard</div>
-                                        <div class="time">02:09.251</div>
-                                    </div>
-                                    <div class="score clearfix">
-                                        <div class="rank">5</div>
-                                        <div class="name">turtle</div>
-                                        <div class="time">52:24.777</div>
-                                    </div>
-
+                                    </div>#}
                                 </div>
                             </div>
                         </div>
 
                         <div class="controls clearfix">
-                            <div class="button retry clearfix">
+                            <div class="button retry">
                                 <div class="label">Retry</div>
                             </div>
-                            <div class="button quit clearfix">
+                            <div class="button quit">
                                 <div class="label">Main Menu</div>
                             </div>
                         </div>
@@ -433,15 +357,9 @@
             </canvas>
         </div>
 
+{% endblock %}
 
-
-
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous">
-    </script>
-    <!--<script src="assets/js/jquery-3.3.1.js"></script>-->
+{% block scripts %}
     <script src="/assets/js/UI.js"></script>
     <script src="/assets/js/Camera.js"></script>
     <script src="/assets/js/Tile.js"></script>
@@ -449,5 +367,4 @@
     <script src="/assets/js/Map.js"></script>
     <script src="/assets/js/Game.js"></script>
     <script src="/assets/js/App.js"></script>
-
 {% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+{% block title %} Circle Jump - Login {% endblock %}
+{% block body %}
+
+
+    <div class="row signup">
+        <div class="col s12 m8 offset-m2 l4 offset-l4">
+            <div class="card z-depth-2">
+                <div class="card-action indigo darken-4 center white-text">
+                    <h3>Sign up</h3>
+                </div>
+                <div class="card-content">
+                    <form method="post" action="/signup/create" id="formSignup">
+
+                        {% if user.errors is not empty %}
+                            <div class="error card-panel red darken-2">
+                                <p class="header">Please consider: </p>
+                                <ul class="browser-default">
+                                    {% for error in user.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <label for="username">Username</label>
+                            <input id="username" name="name" type="text"  value="{{ user.name }}" required/>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">email</i>
+                            <label for="email">E-Mail</label>
+                            <input id="email" name="email" type="email" value="{{ user.email }}" required />
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">lock</i>
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password" required>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">loop</i>
+                            <label for="password_confirmation">Confirm password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" required>
+                        </div>
+                        <div class="input-field">
+                            <button type="submit" class="btn-large indigo darken-4 waves-effect waves-light">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="/assets/js/signup/signup.js"></script>
+{% endblock %}
