@@ -54,12 +54,13 @@ var AppController = (function () {
                 //Hide all menus
                 UI.menus.hideAll();
 
-                //Show the game canvas
-                UI.gameCanvas.show();
+                UI.gameLoader.show();
 
                 //Load the map and once its loaded, start the game
                 game.loadMap(mapName)
                     .then(function() {
+                        //Show the game canvas
+                        UI.gameCanvas.show();
                         console.log("init game");
                         game.init();
                     });
@@ -88,7 +89,7 @@ var AppController = (function () {
 
         UI.mapComplete.retry.on("click", function() {
             UI.mapComplete.hide();
-            game.retry();
+            game.prepareStart();
         });
 
         UI.mapComplete.quit.on("click", function() {

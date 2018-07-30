@@ -90,6 +90,20 @@ Player.prototype = {
         this.y = y;
     },
 
+    resetControls: function() {
+        this.controls    = {
+            left: false,
+            right: false,
+            jump: false
+        };
+    },
+
+    resetPhysics: function() {
+        this.vx = 0;
+        this.vy = 0;
+    },
+
+
     bounce: function(tileWidth) {
 
         console.log(`Bounce: ${this.vy}`);
@@ -141,6 +155,13 @@ Player.prototype = {
 
         tiles.forEach(tile => tile.debugDraw(camera));
 
+    },
+
+    drawMode: function(context) {
+        context.fillStyle = "rgba(0,0,0,0.8)";
+        context.fillRect(240, 20, 150, 50);
+        context.fillStyle = "#64dd17";
+        context.fillText("Mode: " + this.physicMode, 270, 55);
     },
 
     handleCollision: function (map) {

@@ -57,7 +57,7 @@ const UIController = UI = (function () {
             }
         },
         show: function() {
-            $(this.canvas).show();
+            $(this.canvas).fadeIn(2000);
         },
         hide: function() {
             $(this.canvas).hide();
@@ -80,7 +80,7 @@ const UIController = UI = (function () {
             this.container.show();
         },
         hide: function() {
-            this.container.fadeOut(300);
+            this.container.fadeOut(1000);
         },
         setProgress: function(percent) {
             this.progress.css("width", percent + "%");
@@ -115,6 +115,10 @@ const UIController = UI = (function () {
         confirm  : $(".map-selection.menu .confirm"),
 
         show: function() {
+
+            //Deselect any previously selected maps.
+            this.deselect();
+
             if (this.container.is(":hidden")) {
                 this.container.fadeIn(300);
             }

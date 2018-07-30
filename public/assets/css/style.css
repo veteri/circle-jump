@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Luckiest Guy";
+  src: url("/assets/css/fonts/LuckiestGuy-Regular.ttf");
+}
+
 * {
     box-sizing: border-box;
     //font-family: "Lato", sans-serif;
@@ -431,7 +436,21 @@ canvas {
 }
 
 .game > .game-menus > .menu .title {
+  position: relative;
   font-size: 3rem;
+}
+
+.game > .game-menus > .menu .title .back {
+  height: 65px;
+  vertical-align: middle;
+  position: absolute;
+  left: 20px;
+  transition: all 100ms;
+}
+
+.game > .game-menus > .menu .title .back:hover {
+  cursor: pointer;
+  transform: scale(1.08);
 }
 
 .game > .game-menus > .menu .subtitle {

@@ -24,7 +24,6 @@ function Game(fps, map, player) {
      */
     this.frameCount = 0;
 
-
     /**
      * The time that passed since the game has started
      * rendering a map.
@@ -150,12 +149,14 @@ Game.prototype = {
             loadMap: "Game suspended: Loading map",
             changeBg: "Game suspended: Changing background scene",
             mapComplete: "Game suspended: Map has been completed",
-            resetMap: "Game suspended: Level reset"
+            resetMap: "Game suspended: Level reset",
+            retryMap: "Game suspended: Retrying map"
         }
     },
 
     controls: {
-        restartLevel: 88
+        startLevel: 32,
+        restartLevel: 40
     },
 
     /**
@@ -194,10 +195,20 @@ Game.prototype = {
 
             switch(event.keyCode) {
                 case self.controls.restartLevel:
-                    self.retry();
+                    if (self.state === self.states.play) {
+                        self.retry();
+                    }
+                    break;
+                case self.controls.startLevel:
+                    if (self.state === self.states.menu && !self.player.levelComplete) {
+                        self.reset();
+                        self.start();
+                    } else {
+                        self.player.handleButtonEvent.bind(self.player)(event, event.keyCode, false);
+                    }
                     break;
                 default:
-                    self.player.handleButtonEvent.bind(self.player)(event, event.keyCode, false)
+                    self.player.handleButtonEvent.bind(self.player)(event, event.keyCode, false);
             }
 
         });
@@ -399,14 +410,29 @@ Game.prototype = {
         return (this.timePassed - this.timePassedOffset).toFixed(3) * 1000;
     },
 
-    reset: function() {
+    reset: function(resetTime = true) {
+
+        //Reset game variables
         this.frameCount = 0;
         this.delta = 0;
-        this.timePassedOffset = this.timePassed;
+
+        //Reset player variables
+        this.player.levelComplete = false;
+        this.player.resetPhysics();
+        this.player.resetControls();
         this.player.setPosition(
             this.map.spawn[0],
             this.map.spawn[1]
         );
+        this.player.savePosition(true);
+
+        //Reset time
+        if (resetTime) {
+            //console.log(`[reset] tp: ${this.timePassed}, tpo: ${this.timePassedOffset}`);
+            this.timePassedOffset = this.timePassed + (this.Utility.getTimestamp() - this.last) / 1000;
+            //console.log(`[reset] tp: ${this.timePassed}, tpo: ${this.timePassedOffset}`);
+        }
+
     },
 
     retry: function() {
@@ -481,18 +507,18 @@ Game.prototype = {
         });
     },
 
-    drawOverlays: function() {
-
+    drawTime: function(time) {
         this.context.font = "28px Luckiest Guy";
-        this.context.fillStyle = "rgba(0,0,0,0.7)";
+        this.context.fillStyle = "rgba(0,0,0, 0.8)";
         this.context.fillRect(20, 20, 200, 50);
         this.context.fillStyle = "#64dd17";
-        this.context.fillText(UI.timeUtil.fromMs(this.getPassedTime()) , 50, 55);
+        this.context.fillText(UI.timeUtil.fromMs(time) , 50, 55);
+    },
 
-        this.context.fillStyle = "rgba(0,0,0,0.7)";
-        this.context.fillRect(240, 20, 150, 50);
-        this.context.fillStyle = "#64dd17";
-        this.context.fillText("Mode: " + this.player.physicMode, 270, 55);
+    drawOverlays: function() {
+
+        this.drawTime(this.getPassedTime());
+        this.player.drawMode(this.context);
     },
 
     /**
@@ -546,6 +572,69 @@ Game.prototype = {
         }
 
         this.camera.update(this.player);
+    },
+
+    /**
+     * Prepare the start of the map
+     * by rendering for 100ms and then
+     * calling showStartScreen.
+     */
+    prepareStart: function() {
+
+        let self = this;
+
+        //Reset everything
+        this.reset();
+
+        /**
+         * In order to see the map in
+         * the background overlayed by
+         * a black "Press space to start"
+         * alpha overlay, the game is started
+         * and renders for 100ms.
+         */
+        this.start();
+
+        /**
+         * Then after 100ms we stop the game,
+         * to revoke player controls and
+         * draw the startScreen on top of it.
+         */
+        setTimeout(function() {
+            self.stop(self.config.suspensions.retryMap);
+            self.showStartScreen();
+        }, 100);
+    },
+
+    /**
+     * Add a start screen, so the player
+     * can decide when to start the game
+     * by pressing space.
+     */
+    showStartScreen: function() {
+
+        /**
+         * Since the game has run for 100ms
+         * in order for us to have a background
+         * to put the startScreen over,
+         * we redraw the time with 0ms passed.
+         */
+        this.drawTime(0);
+
+        //Draw a black alpha rectangle over the entire canvas.
+        this.context.fillStyle = "rgba(0,0,0,0.4)";
+        this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        //Write "Press space to start in the middle
+        this.context.fillStyle = "#64dd17";
+        this.context.font = "48px Luckiest Guy";
+        this.context.fillText(
+            "Press space to start.",
+            (this.canvas.width / 2) - 250,
+            this.canvas.height / 2
+        );
+
+        console.log(`[start screen] tp: ${this.timePassed}, tpo: ${this.timePassedOffset}`);
     },
 
     /**
@@ -642,11 +731,15 @@ Game.prototype = {
         //Setup a reference timestamp for the game tick.
         this.last = this.Utility.getTimestamp();
 
+        console.log(`[init 1] tp: ${this.timePassed}, tpo: ${this.timePassedOffset}`);
+
         //Load all assets.
         this.loadAssets().then(function() {
 
-            //...then start the game.
-            self.start();
+            console.log(`[init 2] tp: ${self.timePassed}, tpo: ${self.timePassedOffset}`);
+
+            self.prepareStart();
+
 
         });
 
