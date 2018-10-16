@@ -15,8 +15,13 @@ class Game extends Authenticated {
         ]);
     }
 
-    public function submitScoreAction() {
-        echo "Game controller submitScore method";
+    public function editAction() {
+
+        $maps = Map::getAllByUserId($_SESSION["user_id"]);
+
+        View::renderTemplate("Game/editor", [
+            "maps" => $maps
+        ]);
     }
 
 

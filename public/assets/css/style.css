@@ -1,3 +1,55 @@
+@keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.lds-eclipse {
+  position: relative;
+}
+.lds-eclipse div {
+  position: absolute;
+  -webkit-animation: lds-eclipse 1s linear infinite;
+  animation: lds-eclipse 1s linear infinite;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 0 0 #1E90FF;
+  -webkit-transform-origin: 80px 82px;
+  transform-origin: 80px 82px;
+}
+.lds-eclipse {
+  margin: 0 auto;
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
 @font-face {
   font-family: "Luckiest Guy";
   src: url("/assets/css/fonts/LuckiestGuy-Regular.ttf");
@@ -18,6 +70,9 @@ html {
 nav {
   padding: 10px;
 }
+
+
+
 
 /***************************
 Flash Messages
@@ -347,6 +402,7 @@ canvas {
     position: relative;
     width: 100%;
     min-width: 1200px;
+    min-height: 700px;
     height: 100vh;
     background: #000;
 }
@@ -358,16 +414,31 @@ canvas {
   height: 100vh;
 }
 
-.game .loader {
+.game > .home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.game > .home:hover {
+  transform: scale(1.1);
+}
+
+.game > .home img {
+  width: 50px;
+}
+
+.loader {
   width: 100%;
   text-align: center;
 }
 
-.game .loader > .svg {
+.loader > .svg {
   width: 300px;
 }
 
-.game > .loading-info {
+.loading-info {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -387,7 +458,7 @@ canvas {
     width: 0;
 }*/
 
-.game > .loading-info > .progress {
+.loading-info > .progress {
   margin-top: 50px;
   width: 600px;
   height: 30px;
@@ -395,7 +466,7 @@ canvas {
   background: none;
 }
 
-.game > .loading-info > .progress > .determinate {
+.loading-info > .progress > .determinate {
   height: 100%;
   background-color: dodgerblue;
   width: 0;
@@ -445,12 +516,14 @@ canvas {
   vertical-align: middle;
   position: absolute;
   left: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
   transition: all 100ms;
 }
 
 .game > .game-menus > .menu .title .back:hover {
   cursor: pointer;
-  transform: scale(1.08);
+  transform: scale(1.04) translate(0, -50%);
 }
 
 .game > .game-menus > .menu .subtitle {
@@ -460,7 +533,7 @@ canvas {
 .game > .game-menus > .menu .button {
   position: relative;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   background: rgba(0,0,0, 0.2);
 }
 
@@ -487,6 +560,7 @@ canvas {
 }
 
 .game > .game-menus > .menu .list > .item {
+  position: relative;
   padding: 10px;
   text-align: center;
   color: #40dbf0;
@@ -501,6 +575,19 @@ canvas {
 .game > .game-menus > .menu .list > .item.selected {
   color: #e6e6e6;
   background: linear-gradient(to right, orangered, orange);
+}
+
+/*.game > .game-menus > .menu .list .item.map .author {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: yellow;
+}*/
+
+.game > .game-menus > .menu .list .item.selected.map .author {
+  color: #fff;
 }
 
 .game > .game-menus > .menu .rankings {
@@ -558,10 +645,17 @@ canvas {
 
 .game > .game-menus > .main > .button {
   transition: width 0.2s, border 0.2s;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255, 0.1);
+}
+
+.game > .game-menus > .main > .button:last-child {
+  border-bottom: none;
 }
 
 .game > .game-menus > .main > .button > img {
   float: left;
+  margin-left: 20px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -575,6 +669,10 @@ canvas {
   transition: all 0.2s;
 }
 
+.game > .game-menus > .main > .button > .label > a {
+  color: #40dbf0;
+}
+
 .game > .game-menus > .main > .button:hover {
 
 }
@@ -583,7 +681,8 @@ canvas {
   transform: scale(1.04);
 }
 
-.game > .game-menus > .main > .button:hover > .label {
+.game > .game-menus > .main > .button:hover > .label,
+.game > .game-menus > .main > .button:hover a {
   color: #e6e6e6;
   left: 52%;
 }
@@ -604,8 +703,86 @@ canvas {
 
 .game > .game-menus > .map-selection > .list {
   width: 80%;
+  height: 450px;
   margin-top: 20px;
 }
+
+.game > .game-menus > .map-selection > .list .map {
+  padding: 10px 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.game > .game-menus > .map-selection > .list .header {
+  padding: 10px;
+  font-family: "Luckiest Guy", sans-serif;
+  margin-bottom: 20px;
+}
+
+.game > .game-menus > .map-selection > .list .header .ribbon {
+  width: 200px;
+  background: #f57c00;
+  position: absolute;
+  top: 15px;
+  left: -65px;;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  font-size: 1.2rem;
+}
+
+.game > .game-menus > .map-selection > .list .header .ribbon.original {
+  background: #03a9f4;
+}
+
+.game > .game-menus > .map-selection > .list .name.diff-1,
+.game > .game-menus > .map-selection > .list .name.diff-2 {
+  color: green;
+}
+
+.game > .game-menus > .map-selection > .list .name.diff-3 {
+  color: yellow
+}
+
+
+.game > .game-menus > .map-selection > .list .name.diff-4 {
+  color: orange;
+}
+
+.game > .game-menus > .map-selection > .list .name.diff-5 {
+  color: darkred;
+}
+
+.game > .game-menus > .map-selection > .list .map:hover .name,
+.game > .game-menus > .map-selection > .list .map.selected .name {
+  color: #fff;
+}
+
+
+.game > .game-menus > .map-selection > .list .infos {
+  font-size: 1rem;
+}
+
+.game > .game-menus > .map-selection > .list .infos .difficulty-rating {
+  position: relative;
+  width: 100%;
+}
+
+.game > .game-menus > .map-selection > .list .infos .difficulty-rating img {
+  width: 100%;
+}
+
+
+/*.game > .game-menus > .map-selection > .list > .map img {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 150px;
+  transform: translateY(-50%);
+}*/
 
 .game > .game-menus > .map-selection > .selection > .map {
   color: #4cbb17;
@@ -667,7 +844,7 @@ canvas {
 .game > .game-menus > .leaderboard.menu .maps,
 .game > .game-menus > .leaderboard.menu .map-leaderboard {
   float: left;
-  height: 590px;
+  height: 580px;
 }
 
 .game > .game-menus > .leaderboard.menu .maps {
@@ -675,7 +852,7 @@ canvas {
 }
 
 .game > .game-menus > .leaderboard.menu .maps .list {
-  height: calc(100% - 60px);
+  height: calc(100% - 68px);
 }
 
 .game > .game-menus > .leaderboard.menu .map-leaderboard {
@@ -768,6 +945,13 @@ canvas {
   line-height: 100px;
   color: #e6e6e6;
   padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.game > .game-menus > .leaderboard.menu .trophies > .first .player {
+  font-size: 2rem;
+  padding-left: 20px;
 }
 
 .game > .game-menus > .leaderboard.menu .trophies > .first .trophy {
@@ -779,6 +963,10 @@ canvas {
 
 .game > .game-menus > .leaderboard.menu .map-leaderboard .subtitle .map {
   color: #4cbb17;
+}
+
+.game > .game-menus > .leaderboard.menu .map-leaderboard .rankings .body {
+  height: 234px;
 }
 
 /**************************************\
@@ -859,8 +1047,6 @@ canvas {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd700', endColorstr='#bb9e00',GradientType=0 ); /* IE6-9 */
 }
 
-
-
 .game > .game-menus .map-complete.menu .statistics .rankings {
   padding: 20px;
 }
@@ -871,12 +1057,292 @@ canvas {
 
 .game > .game-menus .map-complete.menu .controls .button {
   float: left;
-  width: 45%;
+  width: 30%;
   border-radius: 10px;
 }
 
+.game > .game-menus .map-complete.menu .controls .button.next-map,
 .game > .game-menus .map-complete.menu .controls .button.quit {
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 
+.game > .game-menus .how2play.menu {
+  color: #ebebeb;
+}
+
+.game > .game-menus .how2play.menu > .title {
+  font-family: "Luckiest Guy", sans-serif;
+  background: #212529;
+}
+
+.game > .game-menus .how2play.menu .explanations {
+  overflow-y: scroll;
+  height: 600px;
+  padding: 20px;
+}
+
+.game > .game-menus .how2play.menu .chapter {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.75);
+}
+
+.game > .game-menus .how2play.menu .header {
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 2.4rem;
+  font-family: "Luckiest Guy", sans-serif;
+  background: rgba(0,0,0,0.8);
+}
+
+.game > .game-menus .how2play.menu .body {
+  padding: 20px;
+}
+
+.game > .game-menus .how2play.menu .goal .flag,
+.game > .game-menus .how2play.menu .bounces .circle,
+.game > .game-menus .how2play.menu .controls .arrows {
+  height: 50px;
+}
+
+.game > .game-menus .how2play.menu .bounces .hint {
+  font-size: 0.8rem;
+}
+
+.game > .game-menus .settings.menu {
+  min-height: 400px;
+}
+
+.game > .game-menus .settings.menu .title {
+  font-family: "Luckiest Guy", sans-serif;
+  background: #212529;
+}
+
+.game > .game-menus .settings.menu .sound,
+.game > .game-menus .settings.menu .perspective {
+  padding: 20px;
+}
+
+.game > .game-menus .settings.menu .sound .label,
+.game > .game-menus .settings.menu .sound .volume-slider {
+  float: left;
+}
+
+.game > .game-menus .settings.menu .sound .label {
+  width: 20%;
+  color: #ebebeb;
+}
+
+.game > .game-menus .settings.menu .sound .volume-slider {
+  position: relative;
+  width: 80%;
+}
+
+.game > .game-menus .settings.menu .sound .volume-slider input {
+  border: none;
+  margin: 0;
+}
+
+.game > .game-menus .settings.menu .perspective .label,
+.game > .game-menus .settings.menu .perspective .options {
+  float: left;
+}
+
+.game > .game-menus .settings.menu .perspective .label {
+  width: 20%;
+  color: #ebebeb;
+}
+
+.game > .game-menus .settings.menu .perspective .options {
+  width: 80%;
+}
+
+.game > .game-menus .settings.menu .perspective .options label {
+  color: #ebebeb;
+}
+
+  /**************************************\
+  |*             Editor                  |
+  \**************************************/
+
+.editor {
+  margin: 0;
+}
+
+.editor .controls {
+  overflow-y: scroll;
+  height: calc(100vh - 84px);
+}
+
+.editor  #canvas {
+  position: relative;
+  //height: calc(100vh - 84px);
+
+  //min-width: 1100px;
+}
+
+.editor > .canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 84px);
+  background: #000;
+  padding: 0;
+}
+
+.editor .misc {
+  text-align: center;
+}
+
+.editor .difficulty {
+  margin-bottom: 0;
+}
+
+.editor .difficulty .label {
+  color: #9e9e9e;
+}
+
+.editor .difficulty .options img {
+  width: 200px;
+  cursor: pointer;
+}
+
+
+.editor .textures > .header {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 10px;
+}
+
+
+.editor .textures > .active {
+  text-align: center;
+  padding: 10px;
+}
+
+.editor .textures > .active .label {
+  font-size: 1rem;
+}
+
+.editor .textures > .active img {
+  width: 60px;
+  height: auto;
+}
+
+
+.editor .textures > .body {
+  //height: 180px;
+  height: 250px;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.editor .textures > .body > img {
+  width: 15%;
+  margin-right: 6.25%;
+  border: 2px solid transparent;
+  height: auto;
+}
+
+.editor .textures > .body > img.collide {
+  border: 2px solid black;
+}
+
+.editor .textures > .body > img.non-collide {
+  border: 2px solid blue;
+}
+
+.editor .textures > .body > img:nth-child(5n) {
+  margin-right: 0;
+}
+
+.editor .textures > .body > img:hover {
+  cursor: pointer;
+  border: 2px solid green;
+}
+
+.editor .run,
+.editor .save,
+.editor .select-map,
+.editor .info {
+  width: 100%;
+}
+
+.editor .modal-content h4 {
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+.editor .card-title {
+  background: rgba(0,0,0,0.7);
+  border-top-right-radius: 50%;
+}
+
+.editor #modal-explanation .welcome {
+  position: relative;
+}
+
+.editor #modal-explanation .welcome .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.editor #modal-explanation .chapter-heading {
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.editor #modal-explanation .chapter-heading h4 {
+  margin-top: 1.52rem;
+}
+
+.editor #modal-explanation .row.general-controls .card-panel {
+  min-height: 250px;
+}
+
+.editor #modal-explanation .texture-types img {
+  vertical-align: middle;
+  margin-top: 20px;
+}
+
+.editor #modal-explanation .control-guide .texture-placement {
+  min-height: 384px;
+}
+
+.editor #modal-explanation .control-guide .texture-placement-text {
+  margin-bottom: 20px;
+}
+
+.editor #modal-explanation .control-guide .texture-placement-visual {
+  text-align: center;
+}
+
+.editor #modal-explanation .confirmation {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.editor #user-maps .heading {
+  position: relative;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.editor #user-maps .heading h4 {
+  margin-top: 1.52rem;
+}
+
+.editor #user-maps .heading .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.editor #user-maps .no-maps-notice {
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+}

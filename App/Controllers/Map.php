@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Midi
- * Date: 26.07.2018
- * Time: 23:43
- */
+
 
 namespace App\Controllers;
 use \App\Models\Map as MapModel;
@@ -26,11 +21,24 @@ class Map extends Authenticated {
         $response = [];
 
         if ($map) {
+            $map->incrementPlayAmount();
             $response = $map->getInMapFormat();
             $_SESSION["map_id"] = $map->id;
         }
 
         $this->respondWithJson(json_encode($response));
+    }
+
+    /**
+     * AJAX Routine to get the scores for
+     * a specific map by id.
+     *
+     * @return void
+     */
+    public function getHighscores() {
+        $highscores = Highscore::getScoresByMapId($_POST["id"]);
+        $highscores = Highscore::markUser($highscores, $_SESSION["user_id"]);
+        $this->respondWithJson(json_encode($highscores));
     }
 
     /**
@@ -41,27 +49,65 @@ class Map extends Authenticated {
      */
     public function submitTimeAction() {
 
-        $time = $_POST["time"] ?? null;
+        $rightShift    = $_POST["a"] ?? null;
+        $addendIndex   = $_POST["b"] ?? null;
+        $time          = $_POST["c"] ?? null;
+        $shiftedTime   = $_POST["d"] ?? null;
+
         $user_id = $_SESSION["user_id"];
-        $map_id = $_SESSION["map_id"];
+        $map_id  = $_SESSION["map_id"];
 
         if ($time) {
 
-           Highscore::submit($map_id, $time);
+            if (Highscore::isLegitimate($time, $rightShift, $addendIndex, $shiftedTime)) {
 
-            $highscores = Highscore::getScoresByMapId($map_id);
-
-            foreach($highscores as $index => $highscore) {
-
-                if ($highscore->id === $user_id) {
-                    $highscores[$index]->player = true;
-                }
+                $time = Highscore::getDecodedTime($time, $rightShift, $addendIndex);
+                Highscore::submit($map_id, $time);
 
             }
 
-            $this->respondWithJson(json_encode($highscores));
         }
 
+        $highscores = Highscore::getScoresByMapId($map_id);
+        $highscores = Highscore::markUser($highscores, $user_id);
+
+        $this->respondWithJson(json_encode([
+           "rankings" => $highscores,
+           "time"     => $time
+        ]));
+
+
+    }
+
+    public function publishAction() {
+
+        $data = [
+            "id"                => $_POST["id"],
+            "author"            => $_SESSION["user_id"],
+            "name"              => $_POST["name"],
+            "difficulty"        => $_POST["diff"],
+            "background_scenes" => $_POST["scenes"],
+            "spawns"            => $_POST["spawns"],
+            "data"              => $_POST["levels"]
+        ];
+
+        $message = MapModel::submit($data);
+        $map = MapModel::findByName($data["name"]);
+
+        $this->respondWithJson(json_encode([
+            "msg" => $message,
+            "map" => $map
+        ]));
+
+    }
+
+    public function isLegitAction() {
+        $rightShift    = $_GET["a"] ?? null;
+        $addendIndex   = $_GET["b"] ?? null;
+        $time          = $_GET["c"] ?? null;
+        $shiftedTime   = $_GET["d"] ?? null;
+
+        echo Highscore::isLegitimate($time, $rightShift, $addendIndex, $shiftedTime);
 
     }
 }

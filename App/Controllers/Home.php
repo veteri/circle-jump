@@ -2,20 +2,17 @@
 
 namespace App\Controllers;
 use \Core\View;
+use App\Models\Map;
 
 class Home extends \Core\Controller {
 
-    protected function before() {
-
-    }
-
-    protected function after() {
-
-    }
-
     public function indexAction() {
-        View::renderTemplate("Home/index");
-    }
 
+        $mapCount = Map::getCount();
+
+        View::renderTemplate("Home/index", [
+            "mapCount" => $mapCount
+        ]);
+    }
 
 }

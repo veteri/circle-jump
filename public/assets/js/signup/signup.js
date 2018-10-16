@@ -1,8 +1,3 @@
-/**
- * Created by Midi on 22.07.2018.
- */
-
-
 $(document).ready(function() {
 
     $("#formSignup").validate({

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Midi
- * Date: 06.07.2018
- * Time: 17:38
- */
+
 
 /**
  * Composer, autoload all vendor autoloaders and framework classes
@@ -54,9 +49,10 @@ $router->add("password/reset/{token:[\da-f]+}", ["controller" => "Password", "ac
 $router->add("signup/activate/{token:[\da-f]+}", ["controller" => "Signup", "action" => "activate"]);
 
 $router->add("play", ["controller" => "Game", "action" => "play"]);
+$router->add("editor", ["controller" => "Game", "action" => "edit"]);
 
-$router->add("privacy-policy", ["controller" => "Signup", "action" => "info"]);
-$router->add("terms-of-use", ["controller" => "Signup", "action" => "info2"]);
+$router->add("terms-of-use", ["controller" => "Policy", "action" => "termsOfUse"]);
+$router->add("privacy-policy", ["controller" => "Policy", "action" => "privacyPolicy"]);
 
 $router->add("{controller}/{action}");
 $router->add("{controller}/{action}/{id:\d+}");

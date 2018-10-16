@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Midi
- * Date: 28.07.2018
- * Time: 10:18
- */
 
 namespace App\Models;
 
@@ -96,6 +90,57 @@ class Highscore extends \Core\Model {
 
     }
 
+    public static function getDecodedTime($time, $rightShift, $addendIndex) {
+
+        if ($time === null || $rightShift === null || $addendIndex === null) {
+            return false;
+        }
+
+        $rightShift  = $rightShift  - 0xc79d8b;
+        $addendIndex = $addendIndex - 0xc79d8b;
+
+        $addend = [0xc8419b, 0xc7a2c4, 0xc79d8b][$addendIndex];
+
+        return ($time - $addend) >> $rightShift;
+    }
+
+    public static function isLegitimate($time, $rightShift, $addendIndex, $shiftedTime) {
+        /*
+            a = rightShift
+            b = addendIndex
+            c = addend
+            d = shiftedTime
+        */
+
+        if ($time === null || $rightShift === null || $addendIndex === null || $shiftedTime === null) {
+            return false;
+        }
+
+        $offset = 0xc79d8b;
+
+        $rightShift  = $rightShift  - $offset;
+        $addendIndex = $addendIndex - $offset;
+        $shiftedTime = $shiftedTime - $offset;
+
+        //var_dump($rightShift);
+        //var_dump($addendIndex);
+        //var_dump($shiftedTime);
+
+        $addend = [0xc8419b, 0xc7a2c4, 0xc79d8b][$addendIndex];
+        //var_dump($addend);
+        $decodedTime = ($time - $addend) >> $rightShift;
+        //var_dump($decodedTime);
+
+        $isValidA = $rightShift >= 0 && $rightShift <= 3;
+        $isValidB = $addendIndex >= 0 && $addendIndex <= 2;
+        $isValidD = ($shiftedTime >> 3) == $time;
+        $isValidDecodedTime = $decodedTime >= 1;
+
+        return $isValidA && $isValidB && $isValidD && $isValidDecodedTime;
+
+               
+    }
+
     public function isFasterTime($time) {
         return $time < $this->time;
     }
@@ -120,7 +165,8 @@ class Highscore extends \Core\Model {
         $sql = "SELECT 
                   users.id,
                   users.name, 
-                  highscores.time 
+                  highscores.time,
+                  highscores.map_id
                 FROM users INNER JOIN highscores 
                 ON users.id = highscores.user_id 
                 WHERE highscores.map_id = :map_id
@@ -134,7 +180,18 @@ class Highscore extends \Core\Model {
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
 
+    public static function markUser($highscores, $user_id) {
+        foreach($highscores as $index => $highscore) {
+
+            if ($highscore->id === $user_id) {
+                $highscores[$index]->player = true;
+            }
+
+        }
+
+        return $highscores;
     }
 
 }

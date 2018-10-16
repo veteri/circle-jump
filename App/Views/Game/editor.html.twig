@@ -1,0 +1,359 @@
+{% extends "base.html.twig" %}
+
+{% block title %} CJ - {{ current_user.name }}'s editor {% endblock %}
+{% block body %}
+
+    <div class="row editor">
+
+        <div id="modal-explanation" class="modal">
+            <div class="modal-content">
+                <div class="col s12">
+                    <div class="welcome chapter-heading purple white-text z-depth-2">
+                        <h4 class="center">Welcome to the map editor.</h4>
+                        <button class="right btn waves-effect waves-light modal-close red"><i class="material-icons">close</i></button>
+                    </div>
+                </div>
+                <div class="row general-controls">
+                    <div class="col s12">
+                        <div class="chapter-heading orange white-text z-depth-2">
+                            <h5 class="center">General information</h5>
+                        </div>
+                    </div>
+                    <div class="col s12 xl4">
+                        <div class="card-panel hoverable teal">
+                        <span class="white-text">
+                            The <b>controls</b> are located on the <b>left side</b>.
+                            The <b>editor view</b> is located on the <b>right side</b>.
+                            The editor is designed for <b>desktop devices</b> only
+                            and will not scale properly with mobile devices.
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col s12 xl4">
+                        <div class="card-panel hoverable teal">
+                        <span class="white-text">
+                            Each level <b>requires a spawn</b> (green square) and a <b>finish</b> (flag).
+                            Once you placed a spawn you can <b>test</b> your map by pressing the "Run"
+                            button. However in order to <b>publish</b> it you have to <b>add a finish</b>.
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col s12 xl4">
+                        <div class="card-panel hoverable teal">
+                        <span class="white-text">
+                            The controls have been made as intuitive as possible.
+                            In the next chapter you can see what each and every control does.
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col s12 texture-types">
+                        <div class="card-panel hoverable teal">
+                            <div class="white-text">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h5>Texturetypes</h5>
+                                    </div>
+                                    <div class="col s12">
+                                        <img title="Spawn" src="/assets/images/tiles/spawn.png" height="60"> The spawn. This will declare where your character starts.
+                                    </div>
+                                    <div class="col s12">
+                                        <img title="Circle" src="/assets/images/circlejump.png" height="60"> The circle. This will bounce your character off.
+                                    </div>
+                                    <div class="col s12">
+                                        <img title="Circle" src="/assets/images/texture_placeholder_colliding.png" height="60"> Textures with a black border will collide with the player.
+                                    </div>
+                                    <div class="col s12">
+                                        <img title="Circle" src="/assets/images/texture_placeholder_noncolliding.png" height="60"> Textures with a blue border will not collide.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 xl4">
+                        <div class="card-panel hoverable teal">
+                        <span class="white-text">
+                            The editor view (right side) only displays a portion of the entire level.
+                            See the below controls on how to move the view around.
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col s12 xl4">
+                        <div class="card-panel hoverable teal">
+                        <span class="white-text">
+                            The most outwards tiles are the level bounding. You can replace them with
+                            colliding textures but not with non-colliding textures.
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col s12 xl4">
+                        <div class="card-panel hoverable teal">
+                        <span class="white-text">
+                            The view will always begin in the center. After you read the controls
+                            below try move around the view.
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row control-guide">
+                    <div class="col s12">
+                        <div class="chapter-heading orange white-text z-depth-2">
+                            <h5 class="center">Controls</h5>
+                        </div>
+                    </div>
+                    <div class="col s12{# xl3#}">
+                        <div class="card-panel hoverable teal">
+                            <span class="white-text">
+                                If you want to <b>change background</b> of the current level,
+                                navigate to the controls on the left and click on "Choose background".
+                                If you have multiple levels, each level has its own background.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col s12 {#xl3#}">
+                        <div class="card-panel hoverable teal">
+                            <span class="white-text">
+                                If you want to place the ground on the bottom of the level automatically,
+                                you can click on "Choose ground" and pick one theme.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col s12 xl6">
+                        <div class="card-panel hoverable teal">
+                            <div class="white-text">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">add</i></button> Adds new level
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">remove</i></button> Removes active level
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">settings_backup_restore</i></button> Reset active level
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">gavel</i></button> Remove current ground
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">navigate_before</i></button> Go to previous level
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">navigate_next</i></button> Go to next level
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 xl6">
+                        <div class="texture-placement card-panel hoverable teal">
+                            <div class="white-text">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="texture-placement-text">
+                                            Click on a texture image to activate it. You can see the active texture at the top
+                                            of the textures box.
+                                        </div>
+                                        <div class="texture-placement-visual">
+                                            <img src="/assets/images/texture_selection.gif" alt="" height="200">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12">
+                        <div class="card-panel hoverable teal">
+                            <div class="white-text">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h5>Editor controls</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">mouse</i> Left </button> Place texture at cursor.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">mouse</i> Right </button> Remove texture at cursor.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">mouse</i> Middle </button> Select texture at cursor.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">keyboard</i> WASD </button> Move view up/left/down/right.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn"><i class="material-icons">keyboard</i> ESC</button> Switches back to edit mode, after you clicked "Run".
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <button class="confirmation right modal-close btn-large waves-effect waves-light green">Got it!</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col s12 m12 l5 xl3 controls">
+            <div class="input-field">
+
+                <div class="row">
+                    <div class="col s4">
+                        <button data-target="modal-explanation" class="info waves-effect waves-light modal-trigger btn teal">Guide</button>
+                    </div>
+                    <div class="col s4">
+                        <button data-target="user-maps" class="select-map waves-effect waves-light modal-trigger btn teal">Select map</button>
+                    </div>
+                    <div class="col s4">
+                        <button class="save waves-effect waves-light btn teal">Publish</button>
+                    </div>
+                </div>
+
+                <!-- Modal Structure -->
+                <div id="user-maps" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="heading purple white-text z-depth-2">
+                                    <h4 class="center">Select a map.</h4>
+                                    <button class="right btn waves-effect waves-light modal-close red"><i class="material-icons">close</i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row user-map-list">
+                            {% for map in maps %}
+                                <div class="col s4">
+                                    <div class="card" data-map-id="{{ map.id }}">
+                                        <div class="card-image">
+                                            <img src="/assets/images/landing-slider/parallax03_preview-01.png">
+                                            <span class="card-title">{{ map.name }}</span>
+                                            <a class="select btn-floating halfway-fab waves-effect waves-light green"><i class="material-icons">add</i></a>
+                                        </div>
+                                        <div class="card-content">
+                                            <p>Created {{ map.created_at }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% else %}
+
+                                <div class="no-maps-notice col s12 center">
+                                    <p>You dont have any maps.</p>
+                                    <img src="/assets/images/sad_cat.png" alt="">
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row difficulty">
+                <div class="valign-wrapper">
+                    <div class="col s6 label">How hard is the map?</div>
+                    <div class="col s6 options">
+                        <img data-difficulty="1" src="/assets/images/menu/1.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="map-name">Map name</label>
+                <input id="map-name" type="text" name="name">
+            </div>
+            <div class="input-field">
+                <select name="skybox" id="backgroundScenes">
+                    <option value="" disabled selected>Choose background</option>
+                </select>
+                <label for="backgroundScenes">Choose background</label>
+            </div>
+            <div class="input-field">
+                <select name="ground" id="ground">
+                    <option value="" disabled selected>Choose ground</option>
+                    <option value="spring">Spring</option>
+                    <option value="desert">Desert</option>
+                    <option value="factory">Factory</option>
+                    <option value="graveyard">Graveyard</option>
+                    <option value="scifi">Science Fiction</option>
+                    <option value="winter">Winter</option>
+                </select>
+                <label for="ground">Choose ground</label>
+            </div>
+            <div class="misc">
+                <div class="row">
+                    <div class="col s4 m2">
+                        <button class="btn add-level tooltipped waves-effect waves-light" data-position="top" data-tooltip="Add another level"><i class="material-icons">add</i></button>
+                    </div>
+                    <div class="col s4 m2">
+                        <button class="btn remove-level tooltipped waves-effect waves-light" data-position="top" data-tooltip="Remove current level"><i class="material-icons">remove</i></button>
+                    </div>
+                    <div class="col s4 m2">
+                        <button class="btn reset-level tooltipped waves-effect waves-light" data-position="top" data-tooltip="Remove everything in current level"><i class="material-icons">settings_backup_restore</i></button>
+                    </div>
+                    <div class="col s4 m2">
+                        <button class="btn remove-ground tooltipped waves-effect waves-light" data-position="top" data-tooltip="Remove ground in current level"><i class="material-icons">gavel</i></button>
+                    </div>
+                    <div class="col s4 m2">
+                        <button class="btn previous-level tooltipped waves-effect waves-light" data-position="top" data-tooltip="Change to previous level"><i class="material-icons">navigate_before</i></button>
+                    </div>
+                    <div class="col s4 m2">
+                        <button class="btn next-level tooltipped waves-effect waves-light" data-position="top" data-tooltip="Change to next level"><i class="material-icons">navigate_next</i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="textures">
+                <div class="header orange white-text">Textures</div>
+                <div class="active grey lighten-4">
+                    <div><img title="Spawn" src="/assets/images/tiles/spawn.png" data-tile-type="420"></div>
+                </div>
+                <div class="body grey lighten-4"><img title="Spawn" src="/assets/images/tiles/spawn.png" data-tile-type="420"><img title="Circle" src="/assets/images/circlejump.png" data-tile-type="777"></div>
+            </div>
+            <div class="input-field">
+                <button class="run btn-large green darken-4 waves-effect waves-light">Run</button>
+            </div>
+        </div>
+        <div class="canvas-wrapper col s12 m12 l7 xl9 black">
+            <div class="loading-info">
+                <div class="loader">
+                    <div class="lds-eclipse"><div></div></div>
+                </div>
+                <div class="label white-text center"></div>
+                <div class="progress">
+                    <div class="determinate"></div>
+                </div>
+                <div class="asset white-text center"></div>
+            </div>
+            <canvas class="hidden black" id="canvas"></canvas>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/assets/js/UI.js"></script>
+    <script src="/assets/js/Camera.js"></script>
+    <script src="/assets/js/Tile.js"></script>
+    <script src="/assets/js/Player.js"></script>
+    <script src="/assets/js/Map.js"></script>
+    <script src="/assets/js/Game.js"></script>
+    <script src="/assets/js/Editor.js"></script>
+{% endblock %}

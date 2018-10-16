@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Midi
- * Date: 21.07.2018
- * Time: 11:17
- */
 
 namespace App\Models;
 use PDO;

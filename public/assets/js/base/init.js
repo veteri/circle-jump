@@ -20,6 +20,18 @@
             transition: 500,
             interval: 4500
         });
+
+        elems = document.querySelectorAll('.modal');
+        instances = M.Modal.init(elems);
+
+        elems = document.querySelectorAll('select');
+        instances = M.FormSelect.init(elems);
+
+        elems = document.querySelectorAll('.tooltipped');
+        instances = M.Tooltip.init(elems, {
+            enterDelay: 600
+        });
+
     };
 
     const addValidatorMethods = function() {
@@ -36,6 +48,8 @@
     document.addEventListener('DOMContentLoaded', function() {
         initMaterializeCSS();
         addValidatorMethods();
+
+
     });
 
 

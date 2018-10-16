@@ -606,3 +606,59 @@ Stack trace: #0 C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loa
 #9 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('register')
 #10 {main}
 Thrown in 'C:\Users\Midi\Documents\circlejump\vendor\twig\twig\lib\Twig\Loader\Filesystem.php' on line 226
+[21-Jul-2018 10:39:48 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('signup')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 10:40:28 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('signup')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 10:41:07 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('signup')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 10:41:14 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('signup')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 11:01:24 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('signup/create/')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 11:01:42 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('signup/create/')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 12:30:41 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89
+[21-Jul-2018 12:30:41 Europe/Berlin] 
+
+Uncaught exception: 'Exception'
+Message: 'No route matched.''
+Stack trace: #0 C:\Users\Midi\Documents\circlejump\public\index.php(51): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'C:\Users\Midi\Documents\circlejump\Core\Router.php' on line 89

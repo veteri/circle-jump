@@ -43,7 +43,7 @@
             <li>
                 <img src="/assets/images/landing-slider/preview-01.png">
                 <div class="caption center-align">
-                    <h3>30 Maps included.</h3>
+                    <h3>{{ mapCount }} Maps released so far.</h3>
                     <h5 class="light grey-text text-lighten-3 hide-on-small-only">
                         Choose from a wide variety of maps.
                     </h5>
@@ -86,8 +86,8 @@
                 <div class="col s12 m4">
                     <div class="card-panel grey lighten-3 grey-text text-darken-3">
                         <i class="fas fa-check medium indigo-text text-darken-4"></i>
-                        <h4>30 Maps</h4>
-                        <p>Contains 30 Maps to play by default, varying from easy to extremely hard maps each with its own unique theme.</p>
+                        <h4>{{ mapCount }} Maps</h4>
+                        <p>Contains 5 Maps to play by default, but also {{ mapCount - 5 }} maps created by the community.</p>
                     </div>
                 </div>
             </div>
@@ -95,9 +95,28 @@
     <!-- END-FEATURES -->
 
 
-    <!-- FOOTER -->
-    <footer class="section indigo darken-4 white-text center">
-        <p class="flow-text">Circle Jump &copy; 2018</p>
+    <footer class="page-footer indigo darken-4 ">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text"></h5>
+                    <p class="grey-text text-lighten-4">All images and music are licensed. </p>
+                    <p class="grey-text text-lighten-4">Distribution is strictly prohibited. </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Important Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="/terms-of-use">Terms of Use</a></li>
+                        <li><a class="grey-text text-lighten-3" href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 circle jump
+            </div>
+        </div>
     </footer>
     <!-- END-FOOTER -->
 

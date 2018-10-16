@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Midi
- * Date: 24.07.2018
- * Time: 20:25
- */
+
 
 namespace App\Models;
 
