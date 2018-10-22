@@ -11,5 +11,5 @@ The game can be played under [circlejump.com](https://www.circlejump.com)
 # Built with
 
 The entire game logic is coded in JS. Parts of the frontend uses the MaterializeCSS Framework.
-The design / layout of the game and its menus are all self made.
+Otherwise all the design / layouting of the game and its menus are self made.
 The backend consists of PHP and MySQL for user administration and game leaderboards etc.
