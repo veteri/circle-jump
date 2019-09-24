@@ -9,32 +9,32 @@ class Config {
      * Database host
      * @var string
      */
-    const DB_HOST = "dbhost";
+    const DB_HOST = "116.203.100.242";
 
     /**
      * Database name
      * @var string
      */
-    const DB_NAME = "dbname";
+    const DB_NAME = "circlejump";
 
     /**
      * Database user
      * @var string
      */
-    const DB_USER = "dbuser";
+    const DB_USER = "tyyr";
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = 'dbpassword';
+    const DB_PASSWORD = 'yesbigpassword';
 
     /**
      * Show or hide error messages
      * @var boolean
      */
 
-    const SHOW_ERRORS = false;
+    const SHOW_ERRORS = true;
 
     /**
      * Key for hashing
