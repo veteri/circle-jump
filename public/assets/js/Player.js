@@ -483,6 +483,10 @@ Player.prototype = {
 			overlapX = tileWidth - (this.x % tileWidth);
 		}
 
+        if (overlapX <= 1) {
+            console.warn("Breakpoint here");
+        }
+
         this.lastOverlapX = overlapX;
 
 		//Change forces based on physic mode
