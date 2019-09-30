@@ -129,6 +129,12 @@ function Player(x = 1920, y = 1080) {
 	 */
 	this.physicMode = 1;
 
+    /**
+     * The last hitscale of the player
+     * when he bounces
+     */
+    this.lastOverlapX = 30;
+
 	/**
 	 * The maximum x velocity.
 	 * @type {number}
@@ -477,6 +483,8 @@ Player.prototype = {
 			overlapX = tileWidth - (this.x % tileWidth);
 		}
 
+        this.lastOverlapX = overlapX;
+
 		//Change forces based on physic mode
 		let modeScale;
 		switch (this.physicMode) {
@@ -535,6 +543,19 @@ Player.prototype = {
 		context.fillRect(240, 20, 150, 50);
 		context.fillStyle = "#64dd17";
 		context.fillText("Mode: " + this.physicMode, 270, 55);
+	},
+
+	/**
+	 * Draw the hit rating
+	 *
+	 * @param context {CanvasRenderingContext2D}
+	 * @returns void
+	 */
+	drawHitRating: function(context) {
+		context.fillStyle = "rgba(0,0,0,0.8)";
+		context.fillRect(410, 20, 180, 50);
+		context.fillStyle = "#64dd17";
+		context.fillText("Hit: " + this.lastOverlapX.toFixed(3), 430, 55);
 	},
 
 	/**

@@ -654,6 +654,7 @@ Game.prototype = {
 	drawOverlays: function(forceTime = null) {
 		this.drawTime(forceTime !== null ? forceTime : this.getPassedTime());
 		this.player.drawMode(this.context);
+        this.player.drawHitRating(this.context);
 	},
 
 	/**
