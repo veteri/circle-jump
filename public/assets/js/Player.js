@@ -484,7 +484,7 @@ Player.prototype = {
             this.y + this.height
         );
 
-        let rightDirOffset = rbCorner.isBounce() ? 0 : this.width;
+        let rightDirOffset = rbCorner.isBounce() ? this.width : 0;
 
 		if (this.vx >= 0) {
 			overlapX = (this.x + rightDirOffset) % tileWidth;
