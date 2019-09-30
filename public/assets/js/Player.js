@@ -473,12 +473,21 @@ Player.prototype = {
 	 * @param tileWidth {number} The tile width.
 	 * @returns void
 	 */
-	bounce: function(tileWidth) {
+	bounce: function(map) {
+        
 		let hitScale;
 		let overlapX;
+        let tileWidth = map.tileWidth;
+
+        const rbCorner = map.getTileByCoordinates(
+            this.x + this.width - 1,
+            this.y + this.height
+        );
+
+        let rightDirOffset = rbCorner.isBounce() ? 0 : this.width;
 
 		if (this.vx >= 0) {
-			overlapX = (this.x + this.width) % tileWidth;
+			overlapX = (this.x + rightDirOffset) % tileWidth;
 		} else if (this.vx < 0) {
 			overlapX = tileWidth - (this.x % tileWidth);
 		}
@@ -593,7 +602,7 @@ Player.prototype = {
 				this.lastBounce.x !== bounceTile.x ||
 				this.lastBounce.y !== bounceTile.y
 			) {
-				this.bounce(map.tileWidth);
+				this.bounce(map);
 				this.isBouncing = true;
 			}
 
