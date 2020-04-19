@@ -6,7 +6,7 @@ in real time.
 
 ## Playing the game
 
-The game can be played under [circlejump.com](https://www.circlejump.com)
+The game can be played under [circlejump.com](http://circlejump.com)
 
 # Built with
 
